@@ -325,9 +325,23 @@ function seedData() {
       insertCharacterGroup.run(id, 'liella_main', '全时期', 'active', '成员');
     });
 
-    // いきづらい部
-    insertCharacter.run('ikizuraibu-lead', '花寺 琴音', '花寺琴音', '1期生', 'active', '#59b9c6', 70);
-    insertCharacterGroup.run('ikizuraibu-lead', 'ikizuraibu_main', '全时期', 'active', '成员');
+    // いきづらい部！ (イキヅライブ！ LOVELIVE! BLUEBIRD - 全10人)
+    const ikizuraibuList = [
+      ['takahashi-polka', '高橋 ポルカ', '高桥波尔卡', '#FEE100'],
+      ['azabu-mai', '麻布 麻衣', '麻布麻衣', '#0068B7'],
+      ['goto-akira', '五桐 玲', '五桐玲', '#A8D8B9'],
+      ['komagata-hanabi', '駒形 花火', '驹形花火', '#D7003A'],
+      ['kanazawa-kiseki', '金澤 奇跡', '金泽奇迹', '#FFB6C1'],
+      ['chofu-noriko', '調布 のりこ', '调布法子', '#8A2BE2'],
+      ['harumiya-yukuri', '春宮 ゆくり', '春宫由栗', '#89C3EB'],
+      ['konohana-kaguya', '此花 輝夜', '此花辉夜', '#E03C8A'],
+      ['yamada-midori', '山田 真緑', '山田真绿', '#008000'],
+      ['sasaki-shion', '佐々木 翔音', '佐佐木翔音', '#E6E6E6']
+    ];
+    ikizuraibuList.forEach(([id, ja, zh, col], idx) => {
+      insertCharacter.run(id, ja, zh, '1期生', 'active', col, 70 + idx);
+      insertCharacterGroup.run(id, 'ikizuraibu_main', '全时期', 'active', '成员');
+    });
 
     // 4. 首批真实考据衣装录入 (三船栞子、上原步梦、安养寺姬芽 + 一套待识别样例)
     // 栞子《決意の光》
