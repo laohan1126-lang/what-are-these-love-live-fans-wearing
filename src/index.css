@@ -1,70 +1,83 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --canvas-void: #060913;
-    --canvas-base: #0a1020;
-    --panel-bg: rgba(14, 23, 44, 0.72);
-    --panel-hover: rgba(20, 33, 62, 0.88);
-    --line-subtle: rgba(56, 189, 248, 0.12);
-    --line-strong: rgba(45, 212, 191, 0.35);
-    --accent-jade: #2dd4bf;
-    --neon-cyan: #00e5ff;
-    --neon-gold: #fbbf24;
-    --neon-rose: #f43f5e;
-  }
+:root {
+  --canvas: #090e1a;
+  --panel: #0e1629;
+  --stage: #050811;
+  --soft: rgba(255, 255, 255, 0.035);
+  --soft-hover: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(45, 212, 191, 0.28);
+  --ink: #f3f6fc;
+  --muted: #8b9bb4;
+  --faint: #56657d;
+  --accent: #2dd4bf;
+  --accent-fill: #14b8a6;
+  --accent-hover: #0d9488;
+  --accent-soft: rgba(45, 212, 191, 0.1);
+  --on-accent: #041210;
+  --gold: #f59e0b;
+  --serif: "Noto Serif JP", "Songti SC", "STSong", Georgia, serif;
+  --sans: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
 }
 
-/* 舞台光感与平滑微动效 */
-@keyframes canvas-breathe {
-  0% { opacity: 0.45; transform: scale(1); }
-  50% { opacity: 0.75; transform: scale(1.02); }
-  100% { opacity: 0.45; transform: scale(1); }
+body {
+  margin: 0;
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.canvas-light {
-  background: radial-gradient(circle at 18% 12%, rgba(0, 229, 255, 0.18) 0%, transparent 40%),
-              radial-gradient(circle at 82% 16%, rgba(45, 212, 191, 0.18) 0%, transparent 45%),
-              radial-gradient(ellipse at 50% 0%, rgba(244, 63, 94, 0.12) 0%, transparent 55%);
-  mix-blend-mode: screen;
-  animation: canvas-breathe 10s ease-in-out infinite alternate;
+/* 典雅的衬线排版与标题 */
+.serif-title {
+  font-family: var(--serif);
+  letter-spacing: 0.02em;
 }
 
-/* 自定义滚动条 */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title-jp {
+  font-family: var(--serif);
+  font-style: italic;
+  transform: rotate(-5deg);
+  letter-spacing: 0.06em;
+}
+
+/* 舞台光感动效 */
+@keyframes stage-breathe {
+  0% { opacity: 0.25; }
+  50% { opacity: 0.55; }
+  100% { opacity: 0.25; }
+}
+
+.stage-glow {
+  background: radial-gradient(circle at 75% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 45%),
+              radial-gradient(circle at 25% 10%, rgba(56, 189, 248, 0.1) 0%, transparent 40%);
+  animation: stage-breathe 8s ease-in-out infinite alternate;
+}
+
+/* 滚动条 */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(10, 16, 32, 0.6);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 212, 191, 0.5);
-}
-
-/* 亚克力玻璃拟态 */
-.acrylic-card {
-  background: rgba(13, 22, 42, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(56, 189, 248, 0.14);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.acrylic-card:hover {
-  background: rgba(18, 30, 58, 0.9);
-  border-color: rgba(45, 212, 191, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(45, 212, 191, 0.2);
-}
-
-/* 日文斜切副标题 */
-.title-jp {
-  font-family: 'Noto Serif JP', serif;
-  font-style: italic;
-  transform: rotate(-6deg);
-  letter-spacing: 0.08em;
+  background: rgba(45, 212, 191, 0.35);
 }

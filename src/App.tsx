@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Project, Group, Character, CostumeVariant, FilterOptions, CostumeTheme } from './types';
+import { Project, Character, CostumeVariant, FilterOptions, CostumeTheme } from './types';
 import {
   fetchProjects,
   fetchCharacters,
   fetchCharacterCostumes,
   fetchThemes,
 } from './services/api';
-import { Sidebar } from './components/Sidebar';
-import { HeroHeader } from './components/HeroHeader';
-import { CharacterHero } from './components/CharacterHero';
-import { MultiFilterBar } from './components/MultiFilterBar';
-import { CostumeCard } from './components/CostumeCard';
+import { TopNav } from './components/TopNav';
+import { CharacterMasthead } from './components/CharacterMasthead';
+import { WorkbenchStage } from './components/WorkbenchStage';
+import { MemberDrawer } from './components/MemberDrawer';
 import { EmptyState } from './components/EmptyState';
 import { CostumeLightbox } from './components/CostumeLightbox';
 import { CostumeEditorDrawer } from './components/CostumeEditorDrawer';
@@ -28,6 +27,7 @@ export const App: React.FC = () => {
 
   const [themes, setThemes] = useState<CostumeTheme[]>([]);
   const [costumes, setCostumes] = useState<CostumeVariant[]>([]);
+  const [selectedCostumeId, setSelectedCostumeId] = useState<string | null>(null);
 
   // 筛选与视图状态
   const [filters, setFilters] = useState<FilterOptions>({
@@ -39,13 +39,14 @@ export const App: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  // 弹窗与抽屉控制
+  // 抽屉与弹窗状态
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeLightboxCostume, setActiveLightboxCostume] = useState<CostumeVariant | null>(null);
   const [editingCostume, setEditingCostume] = useState<CostumeVariant | null>(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [isBackupOpen, setIsBackupOpen] = useState(false);
 
-  // 1. 加载企划与团体
+  // 1. 加载企划列表
   const loadProjects = useCallback(async () => {
     try {
       const data = await fetchProjects();
@@ -64,7 +65,6 @@ export const App: React.FC = () => {
         status: statusFilter === 'all' ? undefined : 'active',
       });
       setCharacters(data);
-      // 如果当前选中的角色不在筛选结果中，默认选中第一个
       if (data.length > 0 && !data.some(c => c.id === selectedCharacterId)) {
         setSelectedCharacterId(data[0].id);
       }
@@ -90,14 +90,17 @@ export const App: React.FC = () => {
     try {
       const data = await fetchCharacterCostumes(selectedCharacterId, filters);
       setCostumes(data);
+      if (data.length > 0 && (!selectedCostumeId || !data.some(c => c.id === selectedCostumeId))) {
+        setSelectedCostumeId(data[0].id);
+      }
     } catch (e) {
       console.error(e);
     } finally {
       setIsLoading(false);
     }
-  }, [selectedCharacterId, filters]);
+  }, [selectedCharacterId, filters, selectedCostumeId]);
 
-  // 初始化加载
+  // 初始化数据加载
   useEffect(() => {
     loadProjects();
     loadThemes();
@@ -116,6 +119,7 @@ export const App: React.FC = () => {
   const handleEditorSuccess = async (savedId: string) => {
     setIsEditorOpen(false);
     setEditingCostume(null);
+    setSelectedCostumeId(savedId);
     await loadCostumes();
     await loadCharacters();
     await loadThemes();
@@ -133,102 +137,78 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#060913] text-slate-100 flex flex-col overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200">
-      {/* Codex 1.9 单画板舞台背景 (Canvas Scene) */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        {/* 三船栞子《决意之光》舞台大图作为全景背景 */}
-        <img
-          src="/assets/theme_stage_shioriko.jpg"
-          alt=""
-          className="absolute right-0 -top-12 w-[70vw] max-w-[1200px] h-auto object-cover opacity-35 mix-blend-screen mask-radial pointer-events-none"
-          style={{
-            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 80%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 80%)',
-          }}
-        />
+    <div className="min-h-screen bg-[#070b16] text-slate-100 flex flex-col relative selection:bg-teal-500/20 selection:text-teal-300">
+      {/* 舞台光感漫反射底纹 */}
+      <div className="fixed inset-0 pointer-events-none stage-glow z-0" aria-hidden="true" />
 
-        {/* 呼吸微光与彩虹霓虹舞台反射光 */}
-        <div className="canvas-light absolute inset-0 pointer-events-none" />
-
-        {/* 舞台光线微渐变覆盖 */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060913] via-[#060913]/70 to-transparent pointer-events-none" />
-      </div>
-
-      {/* 顶部 Hero Header */}
-      <HeroHeader
+      {/* 1. 顶部水平导航栏 */}
+      <TopNav
+        projects={projects}
+        selectedProjectId={selectedProjectId}
+        onSelectProject={id => {
+          setSelectedProjectId(id);
+          setSelectedGroupId(null);
+        }}
+        onOpenDrawer={() => setIsDrawerOpen(true)}
         onOpenBackup={() => setIsBackupOpen(true)}
-        onOpenNewCostume={handleOpenNewCostume}
+        currentCharacterNameZh={currentCharacter?.name_zh}
       />
 
-      {/* 主界面分栏工作区 */}
-      <div className="flex-1 flex relative z-10 overflow-hidden">
-        {/* 左侧：企划/分队与角色导航侧边栏 */}
-        <Sidebar
-          projects={projects}
-          selectedProjectId={selectedProjectId}
-          onSelectProject={id => {
-            setSelectedProjectId(id);
-            setSelectedGroupId(null);
-          }}
-          selectedGroupId={selectedGroupId}
-          onSelectGroup={setSelectedGroupId}
-          characters={characters}
-          selectedCharacterId={selectedCharacterId}
-          onSelectCharacter={setSelectedCharacterId}
-          activeStatusFilter={statusFilter}
-          onToggleStatusFilter={setStatusFilter}
+      {/* 2. 角色刊头 (Masthead) */}
+      {currentCharacter && (
+        <CharacterMasthead
+          character={currentCharacter}
+          costumeCount={costumes.length}
+          filters={filters}
+          onFilterChange={setFilters}
+          onAddCostume={handleOpenNewCostume}
         />
+      )}
 
-        {/* 右侧：主画板工作展区 */}
-        <main className="flex-1 h-[calc(100vh-4.5rem)] overflow-y-auto px-6 py-6 lg:px-8">
-          <div className="max-w-7xl mx-auto space-y-6">
-            {/* 角色展台信息头 */}
-            {currentCharacter && (
-              <CharacterHero
-                character={currentCharacter}
-                costumeCount={costumes.length}
-                onAddCostume={handleOpenNewCostume}
-              />
-            )}
-
-            {/* 多维筛选栏 (状态、声优Live、卡面觉醒前后、搜索) */}
-            <MultiFilterBar
-              filters={filters}
-              onChange={setFilters}
-            />
-
-            {/* 衣装卡片展示网格 */}
-            {isLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                {[1, 2, 3, 4].map(i => (
-                  <div
-                    key={i}
-                    className="aspect-[4/3] rounded-2xl bg-slate-900/40 border border-sky-400/10 animate-pulse"
-                  />
-                ))}
-              </div>
-            ) : costumes.length === 0 ? (
-              <EmptyState
-                characterName={currentCharacter?.name_zh || '当前角色'}
-                onAddCostume={handleOpenNewCostume}
-              />
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                {costumes.map(costume => (
-                  <CostumeCard
-                    key={costume.id}
-                    costume={costume}
-                    onClick={() => setActiveLightboxCostume(costume)}
-                    onEdit={() => handleOpenEdit(costume)}
-                  />
-                ))}
-              </div>
-            )}
+      {/* 3. 主工作画板 (Workbench Stage) */}
+      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-6 relative z-10">
+        {isLoading ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 animate-pulse">
+            <div className="lg:col-span-7 aspect-[16/10] bg-slate-900/40 rounded-2xl border border-white/5" />
+            <div className="lg:col-span-5 h-96 bg-slate-900/40 rounded-2xl border border-white/5" />
           </div>
-        </main>
-      </div>
+        ) : costumes.length === 0 ? (
+          <EmptyState
+            characterName={currentCharacter?.name_zh || '当前角色'}
+            onAddCostume={handleOpenNewCostume}
+          />
+        ) : (
+          <WorkbenchStage
+            costumes={costumes}
+            selectedCostumeId={selectedCostumeId}
+            onSelectCostume={setSelectedCostumeId}
+            onOpenLightbox={setActiveLightboxCostume}
+            onEditCostume={handleOpenEdit}
+            onAddCostume={handleOpenNewCostume}
+          />
+        )}
+      </main>
 
-      {/* 大图灯箱弹窗 */}
+      {/* 4. 成员抽屉选择器 */}
+      <MemberDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        projects={projects}
+        selectedProjectId={selectedProjectId}
+        onSelectProject={id => {
+          setSelectedProjectId(id);
+          setSelectedGroupId(null);
+        }}
+        selectedGroupId={selectedGroupId}
+        onSelectGroup={setSelectedGroupId}
+        characters={characters}
+        selectedCharacterId={selectedCharacterId}
+        onSelectCharacter={setSelectedCharacterId}
+        statusFilter={statusFilter}
+        onToggleStatusFilter={setStatusFilter}
+      />
+
+      {/* 5. 大图灯箱检视浮层 */}
       {activeLightboxCostume && (
         <CostumeLightbox
           costume={activeLightboxCostume}
@@ -240,7 +220,7 @@ export const App: React.FC = () => {
         />
       )}
 
-      {/* 录入/编辑抽屉 */}
+      {/* 6. 录入与编辑抽屉 */}
       {isEditorOpen && (
         <CostumeEditorDrawer
           initialCostume={editingCostume}
@@ -255,7 +235,7 @@ export const App: React.FC = () => {
         />
       )}
 
-      {/* 本地备份与还原弹窗 */}
+      {/* 7. 备份与还原弹窗 */}
       {isBackupOpen && (
         <BackupModal
           onClose={() => setIsBackupOpen(false)}
