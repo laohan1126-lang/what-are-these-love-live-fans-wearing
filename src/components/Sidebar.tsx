@@ -67,9 +67,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   <span className="text-[10px] text-slate-400 block truncate">{proj.name_ja}</span>
                 </div>
                 <div className="text-right flex-none pl-2">
-                  <span className="text-[11px] font-mono px-1.5 py-0.5 rounded bg-slate-900/80 border border-sky-400/20 text-teal-300">
-                    {proj.active_count ?? 0}
-                    <span className="text-[9px] text-slate-400">/{proj.total_count ?? 0}</span>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900/80 border border-sky-400/20 text-teal-300">
+                    {proj.total_count ?? 0}人
                   </span>
                 </div>
               </button>

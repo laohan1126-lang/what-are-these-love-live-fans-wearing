@@ -45,9 +45,10 @@ export function verifyScrapedCostume(costume: ScrapedCostume): VerificationResul
     };
   }
 
-  // 证据确凿且日文原名合法，通过校验
+  // 社区第三方卡面数据自动采集不能等同于官方一手权威认证，自动采集结果统一评级为“待核实” (unverified)
   return {
-    verified: true,
+    verified: false,
     nameStatus: 'identified',
+    reason: '社区第三方卡面数据自动采集，待人工核实卡面出处与官方日文原名',
   };
 }

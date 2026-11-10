@@ -49,7 +49,7 @@ export const TopNav: React.FC<TopNavProps> = ({
               >
                 <span>{p.name_zh}</span>
                 <span className="text-[10px] font-mono text-slate-500">
-                  {p.active_count ?? 0}/{p.total_count ?? 0}
+                  ({p.total_count ?? 0}人)
                 </span>
               </button>
             );

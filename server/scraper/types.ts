@@ -15,6 +15,8 @@ export interface ScrapedCostume {
 export interface CurationResult {
   characterId: string;
   characterName: string;
+  supported?: boolean;
+  reason?: string;
   totalFound: number;
   inserted: number;
   skipped: number;

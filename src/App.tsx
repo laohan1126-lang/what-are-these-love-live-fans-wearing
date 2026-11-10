@@ -48,13 +48,24 @@ export const App: React.FC = () => {
   const [isBackupOpen, setIsBackupOpen] = useState(false);
   const [isCurating, setIsCurating] = useState(false);
 
-  // 触发当前角色的自动化图鉴检索与考据入库
+  // 触发当前角色的自动化图鉴检索（采集结果全部入库为“待核实”，杜绝伪权威）
   const handleCurate = async () => {
     if (!selectedCharacterId || isCurating) return;
     setIsCurating(true);
     try {
-      const res = await curateCharacter(selectedCharacterId, 2);
-      alert(`图鉴检索考据完成！\n目标角色：${res.characterName}\n新增入库：${res.inserted} 套\n跳过重复：${res.skipped} 套`);
+      const res = await curateCharacter(selectedCharacterId, 1, 5);
+      if (res.supported === false) {
+        alert(`【暂不支持自动采集】\n${res.reason || '该角色在外部卡面源中暂无收录索引。请点击“+ 手动录入”进行资料建档。'}`);
+      } else {
+        alert(
+          `【社区卡面检索入库完成】\n` +
+          `目标角色：${res.characterName}\n` +
+          `新增入库：${res.inserted} 套（状态：待核实）\n` +
+          `跳过重复：${res.skipped} 套\n` +
+          `下载失败：${res.failed} 套\n\n` +
+          `提示：所有自动采集的卡面均为社区第三方数据，已标记为“待核实”，需人工进一步核实日文原名与出处。`
+        );
+      }
       await loadCostumes();
       await loadThemes();
       await loadProjects();

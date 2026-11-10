@@ -122,11 +122,11 @@ export async function restoreBackup(file: File): Promise<{ success: boolean; mes
   return data;
 }
 
-export async function curateCharacter(characterId: string, maxPages: number = 2): Promise<any> {
+export async function curateCharacter(characterId: string, page: number = 1, pageSize: number = 5): Promise<any> {
   const res = await fetch(`${API_BASE}/curate/character/${characterId}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ maxPages }),
+    body: JSON.stringify({ page, pageSize }),
   });
   const data = await res.json();
   if (!res.ok) {

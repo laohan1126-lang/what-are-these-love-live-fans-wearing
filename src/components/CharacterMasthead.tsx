@@ -130,10 +130,10 @@ export const CharacterMasthead: React.FC<CharacterMastheadProps> = ({
                   ? 'bg-sky-500/30 text-sky-200 border border-sky-400/40 cursor-wait'
                   : 'bg-sky-500 hover:bg-sky-400 text-slate-950 shadow-[0_0_20px_-5px_rgba(14,165,233,0.5)]'
               }`}
-              title="自动联网抓取官方正式衣装、卡面立绘并由 Agent 校验入库"
+              title="从社区公开卡面库检索补充卡面立绘（自动标记为待核实，严禁冒充官方认证）"
             >
               <Sparkles className={`w-3.5 h-3.5 stroke-[2.5] ${isCurating ? 'animate-spin' : ''}`} />
-              <span>{isCurating ? '正在联网检索考据中...' : '自动扩充图鉴'}</span>
+              <span>{isCurating ? '正在检索卡面中...' : '补录社区卡面'}</span>
             </button>
           )}
 

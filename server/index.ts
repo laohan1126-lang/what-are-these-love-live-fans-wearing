@@ -442,16 +442,41 @@ app.put('/api/costumes/:id', (req, res) => {
     const { id } = req.params;
     const payload = req.body;
 
+    const existing = db.prepare('SELECT * FROM costume_variants WHERE id = ?').get(id) as any;
+    if (!existing) {
+      return res.status(404).json({ error: `未找到指定的衣装记录 (ID: ${id})` });
+    }
+
     const validationError = validateCostumePayload(payload);
     if (validationError) {
       return res.status(400).json({ error: validationError });
     }
 
+    let themeId = payload.theme_id || existing.theme_id;
+    let characterId = payload.character_id || existing.character_id;
+
     const tx = db.transaction(() => {
+      // 若提供了新建主题
+      if (payload.new_theme_name_ja && payload.new_theme_name_ja.trim()) {
+        themeId = `theme_${Date.now()}`;
+        db.prepare(`
+          INSERT INTO costume_themes (id, name_ja, name_zh, category, description)
+          VALUES (?, ?, ?, ?, ?)
+        `).run(
+          themeId,
+          payload.new_theme_name_ja.trim(),
+          payload.new_theme_name_zh?.trim() || null,
+          payload.theme_category || 'general',
+          payload.theme_description?.trim() || null
+        );
+      }
+
       const now = new Date().toISOString();
-      db.prepare(`
+      const updateResult = db.prepare(`
         UPDATE costume_variants
-        SET name_ja = ?,
+        SET theme_id = ?,
+            character_id = ?,
+            name_ja = ?,
             name_zh = ?,
             name_status = ?,
             status = ?,
@@ -459,6 +484,8 @@ app.put('/api/costumes/:id', (req, res) => {
             updated_at = ?
         WHERE id = ?
       `).run(
+        themeId,
+        characterId,
         payload.name_ja?.trim() || null,
         payload.name_zh?.trim() || null,
         payload.name_status || (payload.name_ja ? 'identified' : 'unidentified'),
@@ -467,6 +494,10 @@ app.put('/api/costumes/:id', (req, res) => {
         now,
         id
       );
+
+      if (updateResult.changes === 0) {
+        throw new Error('更新失败：记录未发生任何改动或已不存在');
+      }
 
       // 更新来源（如果提供了）
       if (Array.isArray(payload.sources)) {
@@ -514,7 +545,7 @@ app.put('/api/costumes/:id', (req, res) => {
 
     tx();
 
-    res.json({ id, message: '衣装修改已保存' });
+    res.json({ id, message: '衣装修改已保存', character_id: characterId, theme_id: themeId });
   } catch (err: any) {
     res.status(400).json({ error: err.message });
   }
@@ -593,9 +624,10 @@ app.post('/api/restore', upload.single('backup_zip'), (req, res) => {
 app.post('/api/curate/character/:characterId', async (req, res) => {
   try {
     const { characterId } = req.params;
-    const maxPages = req.body?.maxPages || 2;
-    console.log(`[API] 收到角色 [${characterId}] 图鉴自动化同步请求...`);
-    const result = await curateCharacterCostumes(characterId, maxPages);
+    const page = parseInt(req.body?.page || '1', 10);
+    const pageSize = parseInt(req.body?.pageSize || '5', 10);
+    console.log(`[API] 收到角色 [${characterId}] 图鉴采集请求 (第 ${page} 页)...`);
+    const result = await curateCharacterCostumes(characterId, page, pageSize);
     res.json(result);
   } catch (err: any) {
     res.status(500).json({ error: '图鉴采集失败: ' + err.message });

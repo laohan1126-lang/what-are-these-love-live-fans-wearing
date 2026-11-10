@@ -63,7 +63,11 @@ const HEADERS = {
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
 };
 
-export async function fetchIdolStoryCostumes(characterId: string, maxItems: number = 5): Promise<ScrapedCostume[]> {
+export async function fetchIdolStoryCostumes(
+  characterId: string,
+  page: number = 1,
+  pageSize: number = 5
+): Promise<ScrapedCostume[]> {
   const meta = IDOL_STORY_SLUGS[characterId];
   if (!meta) {
     console.warn(`[IdolStory] No mapping for characterId: ${characterId}`);
@@ -71,10 +75,10 @@ export async function fetchIdolStoryCostumes(characterId: string, maxItems: numb
   }
 
   const results: ScrapedCostume[] = [];
-  const listUrl = `https://idol.st/allstars/cards/?search=${meta.slug}`;
+  const listUrl = `https://idol.st/allstars/cards/?page=${page}&search=${encodeURIComponent(meta.slug)}`;
 
   try {
-    console.log(`[IdolStory] 正在检索 ${meta.nameJa} 的官方卡面母版库 (URL: ${listUrl})...`);
+    console.log(`[IdolStory] 正在检索 ${meta.nameJa} 的官方卡面母版库 (Page: ${page}, URL: ${listUrl})...`);
     const res = await fetch(listUrl, { headers: HEADERS });
     if (!res.ok) {
       console.warn(`[IdolStory] List URL failed with status: ${res.status}`);
@@ -86,7 +90,10 @@ export async function fetchIdolStoryCostumes(characterId: string, maxItems: numb
     const cardLinks = Array.from(new Set([...html.matchAll(/href="(\/allstars\/card\/[0-9]+\/[^"]*)"/g)].map(m => m[1])));
     console.log(`[IdolStory] 检索到 ${cardLinks.length} 张官方卡面，准备提取 2x (3600x1800) 超清原图母版...`);
 
-    for (const relativePath of cardLinks.slice(0, maxItems)) {
+    // 分页截取指定条数
+    const targetLinks = cardLinks.slice(0, pageSize);
+
+    for (const relativePath of targetLinks) {
       const cardUrl = `https://idol.st${relativePath}`;
       try {
         const cardRes = await fetch(cardUrl, { headers: HEADERS });
@@ -94,44 +101,74 @@ export async function fetchIdolStoryCostumes(characterId: string, maxItems: numb
 
         const cardHtml = await cardRes.text();
 
-        // 提取 2x 母版原图 (分辨率高达 3600x1800，彻底告别低清模糊)
-        const twoXImgs = Array.from(new Set([...cardHtml.matchAll(/href="([^"]*card\/art\/2x\/[^"]*)"/g)].map(m => m[1])));
-        if (twoXImgs.length === 0) {
+        // 1. 严格判断觉醒前与觉醒后图片 (idolized vs normal)
+        const idolizedMatch = cardHtml.match(/<a\s+href="([^"]*card\/art\/2x\/[^"]*)"[^>]*><img[^>]*class="[^"]*idolized[^"]*"/i);
+        const normalMatch = cardHtml.match(/<a\s+href="([^"]*card\/art\/2x\/[^"]*)"[^>]*><img[^>]*class="[^"]*normal[^"]*"/i);
+
+        let imageUrl = '';
+        let evolutionStage: 'none' | 'unawakened' | 'awakened' = 'none';
+
+        if (idolizedMatch && idolizedMatch[1]) {
+          imageUrl = idolizedMatch[1];
+          evolutionStage = 'awakened';
+        } else if (normalMatch && normalMatch[1]) {
+          imageUrl = normalMatch[1];
+          evolutionStage = 'unawakened';
+        } else {
+          // 兜底提取首张 2x
+          const any2x = cardHtml.match(/href="([^"]*card\/art\/2x\/[^"]*)"/i);
+          if (any2x && any2x[1]) {
+            imageUrl = any2x[1];
+            evolutionStage = 'none';
+          }
+        }
+
+        if (!imageUrl) {
           console.warn(`[IdolStory] Card ${relativePath} 没有检测到 2x 母版，跳过`);
           continue;
         }
 
-        // 解析卡面和衣装名
-        // 例如 /allstars/card/927/UR-Shioriko-Mifune-I-Tried-to-Come-Up-With-a-Pose-Mysterious-Jewelry/
-        const slugParts = relativePath.replace(/\/$/, '').split('/');
-        const lastPart = slugParts[slugParts.length - 1] || '';
-        const cardTitleParts = lastPart.split('-');
+        // 2. 准确提取卡名与衣装名（避免英文碎片拼接错误）
+        // 从 alt="... 「CardTitle / CostumeName」" 中准确分离
+        const altMatch = cardHtml.match(/alt="[^"「]*「([^」]+)」"/i);
+        let costumeNameRaw = '';
+        let cardTitleRaw = '';
 
-        // 提取末尾的衣装名 (如 Mysterious Jewelry, Miracle STAY TUNE)
-        let costumeRaw = cardTitleParts.slice(4).join(' ');
-        if (!costumeRaw || costumeRaw.trim() === '') {
-          costumeRaw = 'ALL STARS 演出服';
+        if (altMatch && altMatch[1]) {
+          const parts = altMatch[1].split('/');
+          if (parts.length > 1) {
+            cardTitleRaw = parts[0].trim();
+            costumeNameRaw = parts[1].trim();
+          } else {
+            cardTitleRaw = parts[0].trim();
+            costumeNameRaw = parts[0].trim();
+          }
         }
 
-        // 匹配日文原名
-        const nameJa = OFFICIAL_JP_NAMES[costumeRaw] || costumeRaw;
+        // 若从 HTML alt 提取失败，退化为从 URL 解析，但不粗暴硬切
+        if (!costumeNameRaw) {
+          const slugParts = relativePath.replace(/\/$/, '').split('/');
+          costumeNameRaw = slugParts[slugParts.length - 1] || 'ALL STARS 卡面';
+        }
 
-        // 优先提取觉醒后（演出服形态，通常是数组第 1 项或含特训后的）
-        const awakenedImgUrl = twoXImgs[0];
+        // 查找是否有官方核实日文名
+        const verifiedJpName = OFFICIAL_JP_NAMES[costumeNameRaw];
+        const themeNameJa = verifiedJpName || costumeNameRaw;
+        const variantNameJa = verifiedJpName ? `${verifiedJpName} (${meta.nameJa}Ver.)` : '';
 
         results.push({
           characterId,
-          themeNameJa: nameJa,
-          variantNameJa: `${nameJa} (${meta.nameJa}Ver.)`,
+          themeNameJa,
+          variantNameJa,
           sourceType: 'game_card',
-          evolutionStage: 'awakened',
-          sourceTitle: `ALL STARS 官方卡面 2x 超清母版：${costumeRaw}`,
+          evolutionStage,
+          sourceTitle: `Idol Story SIFAS 卡面：${cardTitleRaw || costumeNameRaw} (${evolutionStage === 'awakened' ? '觉醒后' : evolutionStage === 'unawakened' ? '觉醒前' : '形态未确认'})`,
           sourceUrl: cardUrl,
-          imageUrl: awakenedImgUrl,
-          notes: `3600x1800 官方原画级 2x 母版，绝非低清缩略图`,
+          imageUrl,
+          notes: `由 Idol Story 社区数据采集的 2x 原画（${evolutionStage === 'awakened' ? '已确认为觉醒后演出服' : '未觉醒状态日常卡面'}），待人工比对核实`,
         });
 
-        console.log(`[IdolStory] ✓ 锁定超清母版: ${nameJa} -> ${awakenedImgUrl}`);
+        console.log(`[IdolStory] ✓ 锁定卡面: ${costumeNameRaw} [${evolutionStage}] -> ${imageUrl}`);
       } catch (err: any) {
         console.warn(`[IdolStory] Error fetching card ${relativePath}:`, err.message);
       }

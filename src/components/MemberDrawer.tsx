@@ -86,7 +86,7 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
                   >
                     <span className="block truncate font-semibold">{p.name_zh}</span>
                     <span className="block text-[10px] text-slate-500 font-mono mt-0.5">
-                      {p.active_count ?? 0}/{p.total_count ?? 0} 人
+                      共 {p.total_count ?? 0} 位角色
                     </span>
                   </button>
                 );

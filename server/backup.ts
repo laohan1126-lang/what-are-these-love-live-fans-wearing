@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { createRequire } from 'module';
-import { DATA_DIR, DB_FILE, UPLOADS_DIR, db } from './db.js';
+import { DATA_DIR, DB_FILE, UPLOADS_DIR, db, reopenDatabase } from './db.js';
 
 const require = createRequire(import.meta.url);
 const AdmZip = require('adm-zip');
@@ -9,18 +9,22 @@ const AdmZip = require('adm-zip');
 export function createBackupZip(outputPath: string): Promise<void> {
   return new Promise((resolve, reject) => {
     try {
-      // 保证 WAL 数据刷回主库文件
+      // 保证 WAL 数据安全合并
       try {
-        db.pragma('wal_checkpoint(TRUNCATE)');
+        db.pragma('wal_checkpoint(PASSIVE)');
       } catch (e) {
         // ignore
       }
 
       const zip = new AdmZip();
 
-      // 1. 添加 SQLite 数据库文件
+      // 1. 添加 SQLite 数据库文件及活跃 WAL 文件
       if (fs.existsSync(DB_FILE)) {
         zip.addLocalFile(DB_FILE);
+      }
+      const walFile = DB_FILE + '-wal';
+      if (fs.existsSync(walFile) && fs.statSync(walFile).size > 0) {
+        zip.addLocalFile(walFile);
       }
 
       // 2. 添加 uploads 目录内容
@@ -58,11 +62,18 @@ export function restoreBackupZip(zipPath: string): { success: boolean; message: 
     throw new Error('无效的备份文件：压缩包内未找到 archive.db 数据库文件');
   }
 
-  // 1. 创建兜底备份 .bak
+  // 1. 创建兜底备份 .bak (排除内存映射锁定的 -shm 文件)
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
   const backupDir = path.resolve(DATA_DIR, `../data_backup_${timestamp}.bak`);
-  if (fs.existsSync(DATA_DIR)) {
-    fs.cpSync(DATA_DIR, backupDir, { recursive: true });
+  try {
+    if (fs.existsSync(DATA_DIR)) {
+      fs.cpSync(DATA_DIR, backupDir, {
+        recursive: true,
+        filter: (src) => !src.endsWith('-shm'),
+      });
+    }
+  } catch (e) {
+    // 忽略特定锁文件的拷贝异常
   }
 
   // 2. 解压到临时目录
@@ -73,14 +84,26 @@ export function restoreBackupZip(zipPath: string): { success: boolean; message: 
 
   zip.extractAllTo(tempExtractDir, true);
 
-  // 3. 安全复制 db 文件与 uploads 目录
+  // 3. 安全处理数据库与 uploads
+  try {
+    if (db && db.open) {
+      db.close();
+    }
+  } catch (e) {
+    // ignore
+  }
+
   const extractedDb = path.resolve(tempExtractDir, 'archive.db');
   if (fs.existsSync(extractedDb)) {
     try {
-      db.close();
+      const walFile = DB_FILE + '-wal';
+      const shmFile = DB_FILE + '-shm';
+      if (fs.existsSync(walFile)) fs.writeFileSync(walFile, Buffer.alloc(0));
+      if (fs.existsSync(shmFile)) fs.writeFileSync(shmFile, Buffer.alloc(0));
     } catch (e) {
       // ignore
     }
+
     fs.copyFileSync(extractedDb, DB_FILE);
   }
 
@@ -89,10 +112,33 @@ export function restoreBackupZip(zipPath: string): { success: boolean; message: 
     if (!fs.existsSync(UPLOADS_DIR)) {
       fs.mkdirSync(UPLOADS_DIR, { recursive: true });
     }
-    fs.cpSync(extractedUploads, UPLOADS_DIR, { recursive: true });
+    try {
+      const files = fs.readdirSync(extractedUploads);
+      for (const file of files) {
+        const src = path.resolve(extractedUploads, file);
+        const dest = path.resolve(UPLOADS_DIR, file);
+        if (fs.statSync(src).isFile()) {
+          try {
+            fs.copyFileSync(src, dest);
+          } catch (e) {
+            // ignore individual busy file
+          }
+        }
+      }
+    } catch (e: any) {
+      console.warn('Uploads restore warning:', e.message);
+    }
   }
 
-  // 4. 清理临时解压目录
+  // 4. 重新建立数据库连接并验证可用性
+  reopenDatabase();
+  try {
+    db.prepare('SELECT COUNT(*) FROM characters').get();
+  } catch (err: any) {
+    throw new Error('恢复后数据库校验失败: ' + err.message);
+  }
+
+  // 5. 清理临时解压目录
   try {
     fs.rmSync(tempExtractDir, { recursive: true, force: true });
   } catch (e) {

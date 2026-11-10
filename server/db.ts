@@ -18,10 +18,27 @@ if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
-export const db = new Database(DB_FILE);
-db.pragma('journal_mode = WAL');
-db.pragma('busy_timeout = 5000');
-db.pragma('foreign_keys = ON');
+export let db = createDbConnection();
+
+function createDbConnection() {
+  const conn = new Database(DB_FILE);
+  conn.pragma('journal_mode = WAL');
+  conn.pragma('busy_timeout = 5000');
+  conn.pragma('foreign_keys = ON');
+  return conn;
+}
+
+export function reopenDatabase() {
+  try {
+    if (db && db.open) {
+      db.close();
+    }
+  } catch (e) {
+    // ignore
+  }
+  db = createDbConnection();
+  return db;
+}
 
 export function initDatabase() {
   db.exec(`
@@ -163,6 +180,7 @@ function seedData() {
     insertGroup.run('dollchestra', 'hasunosora', 'DOLLCHESTRA', 'DOLLCHESTRA', 'subunit', 3);
     insertGroup.run('mira_cra_park', 'hasunosora', 'みらくらぱーく！', 'Mira-Cra Park!', 'subunit', 4);
     insertGroup.run('edel_note', 'hasunosora', 'Edel Note', 'Edel Note', 'special', 5);
+    insertGroup.run('tasokare_no_rinko', 'hasunosora', '誰ソ彼ノ燐光', '誰ソ彼ノ燐光', 'subunit', 6);
 
     // Liella!
     insertGroup.run('liella_main', 'superstar', 'Liella!', 'Liella! 全员', 'main', 1);
@@ -202,12 +220,10 @@ function seedData() {
     insertCharacter.run('takasaki-yu', '高咲 侑', '高咲侑', '1期生', 'active', '#141414', 13);
 
     // 虹咲归属
+    // 全员大队
     insertCharacterGroup.run('mifune-shioriko', 'nijigasaki_main', '全时期', 'active', '成员');
-    insertCharacterGroup.run('mifune-shioriko', 'r3birth', '全时期', 'active', '成员');
     insertCharacterGroup.run('uehara-ayumu', 'nijigasaki_main', '全时期', 'active', '成员');
-    insertCharacterGroup.run('uehara-ayumu', 'azuna', '全时期', 'active', '成员');
     insertCharacterGroup.run('nakasu-kasumi', 'nijigasaki_main', '全时期', 'active', '成员');
-    insertCharacterGroup.run('nakasu-kasumi', 'qu4rtz', '全时期', 'active', '成员');
     insertCharacterGroup.run('osaka-shizuku', 'nijigasaki_main', '全时期', 'active', '成员');
     insertCharacterGroup.run('asaka-karin', 'nijigasaki_main', '全时期', 'active', '成员');
     insertCharacterGroup.run('miyashita-ai', 'nijigasaki_main', '全时期', 'active', '成员');
@@ -218,6 +234,27 @@ function seedData() {
     insertCharacterGroup.run('mia-taylor', 'nijigasaki_main', '全时期', 'active', '成员');
     insertCharacterGroup.run('zhong-lanzhu', 'nijigasaki_main', '全时期', 'active', '成员');
     insertCharacterGroup.run('takasaki-yu', 'nijigasaki_main', '全时期', 'active', '音乐担当');
+
+    // 虹咲小分队
+    // A・ZU・NA (3人: 步梦、雫、雪菜)
+    insertCharacterGroup.run('uehara-ayumu', 'azuna', '全时期', 'active', '成员');
+    insertCharacterGroup.run('osaka-shizuku', 'azuna', '全时期', 'active', '成员');
+    insertCharacterGroup.run('yuki-setsuna', 'azuna', '全时期', 'active', '成员');
+
+    // QU4RTZ (4人: 霞、彼方、艾玛、璃奈)
+    insertCharacterGroup.run('nakasu-kasumi', 'qu4rtz', '全时期', 'active', '成员');
+    insertCharacterGroup.run('omi-kanata', 'qu4rtz', '全时期', 'active', '成员');
+    insertCharacterGroup.run('emma-verde', 'qu4rtz', '全时期', 'active', '成员');
+    insertCharacterGroup.run('tennoji-rina', 'qu4rtz', '全时期', 'active', '成员');
+
+    // DiverDiva (2人: 果林、爱)
+    insertCharacterGroup.run('asaka-karin', 'diverdiva', '全时期', 'active', '成员');
+    insertCharacterGroup.run('miyashita-ai', 'diverdiva', '全时期', 'active', '成员');
+
+    // R3BIRTH (3人: 栞子、米雅、岚珠)
+    insertCharacterGroup.run('mifune-shioriko', 'r3birth', '全时期', 'active', '成员');
+    insertCharacterGroup.run('mia-taylor', 'r3birth', '全时期', 'active', '成员');
+    insertCharacterGroup.run('zhong-lanzhu', 'r3birth', '全时期', 'active', '成员');
 
     // 莲之空历代全部正式成员 (102期至106期)
     // 102期生 (已于2025年3月毕业)
@@ -275,11 +312,15 @@ function seedData() {
     insertCharacterGroup.run('seras-yanagida-lilienfeld', 'dollchestra', '106期起', 'active', '移籍所属');
     insertCharacterGroup.run('izumi-katsuragi', 'hasunosora_main', '105期起', 'active', '成员');
     insertCharacterGroup.run('izumi-katsuragi', 'edel_note', '105期', 'historical', '初期组合');
+    insertCharacterGroup.run('izumi-katsuragi', 'tasokare_no_rinko', '106期起', 'active', '新组合所属');
 
     // 106期
     insertCharacterGroup.run('maika-kinjo', 'hasunosora_main', '106期起', 'active', '新入生');
+    insertCharacterGroup.run('maika-kinjo', 'cerise_bouquet', '106期起', 'active', '成员');
     insertCharacterGroup.run('aoi-reisawa', 'hasunosora_main', '106期起', 'active', '新入生');
+    insertCharacterGroup.run('aoi-reisawa', 'mira_cra_park', '106期起', 'active', '成员');
     insertCharacterGroup.run('mion-shinowa', 'hasunosora_main', '106期起', 'active', '新入生');
+    // 紫輪みおん：不凭空猜测小分队归属，仅保留全员大队
 
     // μ's 9人
     const museList = [
@@ -298,6 +339,22 @@ function seedData() {
       insertCharacterGroup.run(id, 'muse_main', '全时期', 'active', '成员');
     });
 
+    // μ's 小分队
+    // Printemps (3人: 穂乃果、ことり、花陽)
+    insertCharacterGroup.run('kousaka-honoka', 'printemps', '全时期', 'active', '成员');
+    insertCharacterGroup.run('minami-kotori', 'printemps', '全时期', 'active', '成员');
+    insertCharacterGroup.run('koizumi-hanayo', 'printemps', '全时期', 'active', '成员');
+
+    // lily white (3人: 海未、凛、希)
+    insertCharacterGroup.run('sonoda-umi', 'lily_white', '全时期', 'active', '成员');
+    insertCharacterGroup.run('hoshizora-rin', 'lily_white', '全时期', 'active', '成员');
+    insertCharacterGroup.run('tojo-nozomi', 'lily_white', '全时期', 'active', '成员');
+
+    // BiBi (3人: 絵里、真姫、にこ)
+    insertCharacterGroup.run('ayase-eli', 'bibi', '全时期', 'active', '成员');
+    insertCharacterGroup.run('nishikino-maki', 'bibi', '全时期', 'active', '成员');
+    insertCharacterGroup.run('yazawa-nico', 'bibi', '全时期', 'active', '成员');
+
     // Aqours 9人
     const aqoursList = [
       ['takami-chika', '高海 千歌', '高海千歌', '#F08300'],
@@ -314,6 +371,22 @@ function seedData() {
       insertCharacter.run(id, ja, zh, '全员', 'active', col, 50 + idx);
       insertCharacterGroup.run(id, 'aqours_main', '全时期', 'active', '成员');
     });
+
+    // Aqours 小分队
+    // CYaRon! (3人: 千歌、曜、ルビィ)
+    insertCharacterGroup.run('takami-chika', 'cyaron', '全时期', 'active', '成员');
+    insertCharacterGroup.run('watanabe-you', 'cyaron', '全时期', 'active', '成员');
+    insertCharacterGroup.run('kurosawa-ruby', 'cyaron', '全时期', 'active', '成员');
+
+    // AZALEA (3人: 果南、ダイヤ、花丸)
+    insertCharacterGroup.run('matsuura-kanan', 'azalea', '全时期', 'active', '成员');
+    insertCharacterGroup.run('kurosawa-dia', 'azalea', '全时期', 'active', '成员');
+    insertCharacterGroup.run('kunikida-hanamaru', 'azalea', '全时期', 'active', '成员');
+
+    // Guilty Kiss (3人: 梨子、善子、鞠莉)
+    insertCharacterGroup.run('sakurauchi-riko', 'guilty_kiss', '全时期', 'active', '成员');
+    insertCharacterGroup.run('tsushima-yoshiko', 'guilty_kiss', '全时期', 'active', '成员');
+    insertCharacterGroup.run('ohara-mari', 'guilty_kiss', '全时期', 'active', '成员');
 
     // Liella! 11人
     const liellaList = [
@@ -333,6 +406,24 @@ function seedData() {
       insertCharacter.run(id, ja, zh, '全员', 'active', col, 60 + idx);
       insertCharacterGroup.run(id, 'liella_main', '全时期', 'active', '成员');
     });
+
+    // Liella! 小分队
+    // CatChu! (3人: かのん、すみれ、メイ)
+    insertCharacterGroup.run('shibuya-kanon', 'catchu', '全时期', 'active', '成员');
+    insertCharacterGroup.run('heanna-sumire', 'catchu', '全时期', 'active', '成员');
+    insertCharacterGroup.run('yoneme-mei', 'catchu', '全时期', 'active', '成员');
+
+    // KALEIDOSCORE (3人: 可可、恋、マルガレーテ)
+    insertCharacterGroup.run('tang-keke', 'kaleidoscore', '全时期', 'active', '成员');
+    insertCharacterGroup.run('hazuki-ren', 'kaleidoscore', '全时期', 'active', '成员');
+    insertCharacterGroup.run('wien-margarete', 'kaleidoscore', '全时期', 'active', '成员');
+
+    // 5yncri5e! (5人: 千砂都、きな子、四季、夏美、冬毬)
+    insertCharacterGroup.run('arashi-chisato', '5yncri5e', '全时期', 'active', '成员');
+    insertCharacterGroup.run('sakurakoji-kinako', '5yncri5e', '全时期', 'active', '成员');
+    insertCharacterGroup.run('wakana-shiki', '5yncri5e', '全时期', 'active', '成员');
+    insertCharacterGroup.run('onitsuka-natsumi', '5yncri5e', '全时期', 'active', '成员');
+    insertCharacterGroup.run('onitsuka-tomari', '5yncri5e', '全时期', 'active', '成员');
 
     // いきづらい部！ (イキヅライブ！ LOVELIVE! BLUEBIRD - 全10人)
     const ikizuraibuList = [
