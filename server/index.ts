@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 import { db, initDatabase, UPLOADS_DIR, DATA_DIR } from './db.js';
 import { createBackupZip, restoreBackupZip } from './backup.js';
+import { curateCharacterCostumes } from './scraper/curator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -581,6 +582,21 @@ app.post('/api/restore', upload.single('backup_zip'), (req, res) => {
     res.json(result);
   } catch (err: any) {
     res.status(400).json({ error: '数据恢复失败: ' + err.message });
+  }
+});
+
+// ==================== 7. 自动化图鉴采集与考据 API ====================
+
+// 触发特定角色的自动化网络检索与考据入库
+app.post('/api/curate/character/:characterId', async (req, res) => {
+  try {
+    const { characterId } = req.params;
+    const maxPages = req.body?.maxPages || 2;
+    console.log(`[API] 收到角色 [${characterId}] 图鉴自动化同步请求...`);
+    const result = await curateCharacterCostumes(characterId, maxPages);
+    res.json(result);
+  } catch (err: any) {
+    res.status(500).json({ error: '图鉴采集失败: ' + err.message });
   }
 });
 

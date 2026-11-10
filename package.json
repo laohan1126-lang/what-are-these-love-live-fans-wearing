@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "backup": "tsx server/cli.ts backup",
     "restore": "tsx server/cli.ts restore",
+    "curate": "tsx server/scraper/cli.ts",
     "test": "tsx tests/run-all-tests.ts"
   },
   "dependencies": {
@@ -23,7 +24,8 @@
     "multer": "2.5.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "tailwind-merge": "3.7.0"
+    "tailwind-merge": "3.7.0",
+    "undici": "^8.12.4"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.3.5",

@@ -121,3 +121,16 @@ export async function restoreBackup(file: File): Promise<{ success: boolean; mes
   }
   return data;
 }
+
+export async function curateCharacter(characterId: string, maxPages: number = 2): Promise<any> {
+  const res = await fetch(`${API_BASE}/curate/character/${characterId}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ maxPages }),
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || '图鉴采集失败');
+  }
+  return data;
+}

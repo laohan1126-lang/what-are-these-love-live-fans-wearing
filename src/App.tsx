@@ -5,6 +5,7 @@ import {
   fetchCharacters,
   fetchCharacterCostumes,
   fetchThemes,
+  curateCharacter,
 } from './services/api';
 import { TopNav } from './components/TopNav';
 import { CharacterMasthead } from './components/CharacterMasthead';
@@ -45,6 +46,24 @@ export const App: React.FC = () => {
   const [editingCostume, setEditingCostume] = useState<CostumeVariant | null>(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [isBackupOpen, setIsBackupOpen] = useState(false);
+  const [isCurating, setIsCurating] = useState(false);
+
+  // 触发当前角色的自动化图鉴检索与考据入库
+  const handleCurate = async () => {
+    if (!selectedCharacterId || isCurating) return;
+    setIsCurating(true);
+    try {
+      const res = await curateCharacter(selectedCharacterId, 2);
+      alert(`图鉴检索考据完成！\n目标角色：${res.characterName}\n新增入库：${res.inserted} 套\n跳过重复：${res.skipped} 套`);
+      await loadCostumes();
+      await loadThemes();
+      await loadProjects();
+    } catch (err: any) {
+      alert('图鉴采集失败: ' + err.message);
+    } finally {
+      setIsCurating(false);
+    }
+  };
 
   // 1. 加载企划列表
   const loadProjects = useCallback(async () => {
@@ -162,6 +181,8 @@ export const App: React.FC = () => {
           filters={filters}
           onFilterChange={setFilters}
           onAddCostume={handleOpenNewCostume}
+          onCurateCostumes={handleCurate}
+          isCurating={isCurating}
         />
       )}
 
@@ -176,6 +197,8 @@ export const App: React.FC = () => {
           <EmptyState
             characterName={currentCharacter?.name_zh || '当前角色'}
             onAddCostume={handleOpenNewCostume}
+            onCurateCostumes={handleCurate}
+            isCurating={isCurating}
           />
         ) : (
           <WorkbenchStage

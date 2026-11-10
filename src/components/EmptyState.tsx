@@ -4,11 +4,15 @@ import { Shirt, Plus, Sparkles } from 'lucide-react';
 interface EmptyStateProps {
   characterName: string;
   onAddCostume: () => void;
+  onCurateCostumes?: () => void;
+  isCurating?: boolean;
 }
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   characterName,
   onAddCostume,
+  onCurateCostumes,
+  isCurating = false,
 }) => {
   return (
     <div className="rounded-2xl border border-sky-400/15 bg-gradient-to-b from-slate-900/60 to-slate-950/80 p-12 text-center flex flex-col items-center justify-center max-w-lg mx-auto my-12 backdrop-blur-md">
@@ -21,16 +25,33 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       </h3>
 
       <p className="text-xs text-slate-400 max-w-sm mb-6 leading-relaxed">
-        本资料库严禁生成未经考据的臆想数据。如果你正在收集或考据该角色的 COSPLAY 服装，可以立即录入第一套官方或待识别衣装。
+        本资料库遵循严谨的官方考据原则。您可以一键启动自动化脚本检索官方维基与数据库，自动下载立绘并入库；也可手动录入。
       </p>
 
-      <button
-        onClick={onAddCostume}
-        className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-teal-400 hover:bg-teal-300 transition-all flex items-center gap-2 shadow-[0_0_20px_-5px_rgba(45,212,191,0.5)] active:scale-95"
-      >
-        <Plus className="w-4 h-4" />
-        <span>+ 录入第一套衣装</span>
-      </button>
+      <div className="flex items-center gap-3">
+        {onCurateCostumes && (
+          <button
+            onClick={onCurateCostumes}
+            disabled={isCurating}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-[0_0_20px_-5px_rgba(14,165,233,0.5)] active:scale-95 ${
+              isCurating
+                ? 'bg-sky-500/30 text-sky-200 border border-sky-400/40 cursor-wait'
+                : 'text-slate-950 bg-sky-400 hover:bg-sky-300'
+            }`}
+          >
+            <Sparkles className={`w-4 h-4 ${isCurating ? 'animate-spin' : ''}`} />
+            <span>{isCurating ? '正在检索下载中...' : '自动扩充官方图鉴'}</span>
+          </button>
+        )}
+
+        <button
+          onClick={onAddCostume}
+          className="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 transition-all flex items-center gap-1.5 border border-white/10 active:scale-95"
+        >
+          <Plus className="w-3.5 h-3.5" />
+          <span>手动录入</span>
+        </button>
+      </div>
     </div>
   );
 };

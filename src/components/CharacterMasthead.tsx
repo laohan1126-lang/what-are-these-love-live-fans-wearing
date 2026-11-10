@@ -8,6 +8,8 @@ interface CharacterMastheadProps {
   filters: FilterOptions;
   onFilterChange: (filters: FilterOptions) => void;
   onAddCostume: () => void;
+  onCurateCostumes?: () => void;
+  isCurating?: boolean;
 }
 
 export const CharacterMasthead: React.FC<CharacterMastheadProps> = ({
@@ -16,6 +18,8 @@ export const CharacterMasthead: React.FC<CharacterMastheadProps> = ({
   filters,
   onFilterChange,
   onAddCostume,
+  onCurateCostumes,
+  isCurating = false,
 }) => {
   const isShioriko = character.id === 'mifune-shioriko';
 
@@ -115,14 +119,30 @@ export const CharacterMasthead: React.FC<CharacterMastheadProps> = ({
           </div>
         </div>
 
-        {/* 右侧：主操作按钮 */}
-        <div className="flex-none">
+        {/* 右侧：主操作按钮组 */}
+        <div className="flex-none flex items-center gap-2">
+          {onCurateCostumes && (
+            <button
+              onClick={onCurateCostumes}
+              disabled={isCurating}
+              className={`text-xs px-3.5 py-2 rounded-lg font-bold transition-all flex items-center gap-1.5 active:scale-95 ${
+                isCurating
+                  ? 'bg-sky-500/30 text-sky-200 border border-sky-400/40 cursor-wait'
+                  : 'bg-sky-500 hover:bg-sky-400 text-slate-950 shadow-[0_0_20px_-5px_rgba(14,165,233,0.5)]'
+              }`}
+              title="自动联网抓取官方正式衣装、卡面立绘并由 Agent 校验入库"
+            >
+              <Sparkles className={`w-3.5 h-3.5 stroke-[2.5] ${isCurating ? 'animate-spin' : ''}`} />
+              <span>{isCurating ? '正在联网检索考据中...' : '自动扩充图鉴'}</span>
+            </button>
+          )}
+
           <button
             onClick={onAddCostume}
-            className="text-xs px-4 py-2 rounded-lg bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold transition-all shadow-[0_0_20px_-5px_rgba(45,212,191,0.4)] flex items-center gap-1.5 active:scale-95"
+            className="text-xs px-3.5 py-2 rounded-lg bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold transition-all shadow-[0_0_20px_-5px_rgba(45,212,191,0.4)] flex items-center gap-1.5 active:scale-95"
           >
             <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
-            <span>+ 录入新衣装</span>
+            <span>+ 手动录入</span>
           </button>
         </div>
       </div>
