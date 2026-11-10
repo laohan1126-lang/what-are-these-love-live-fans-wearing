@@ -1,16 +1,20 @@
 @echo off
-chcp 65001 >nul
 cd /d "%~dp0"
-title Love Live! 衣装资料库 - 決意の光
+title Love Live! Costume Archive
 
 echo ========================================================
-echo   Love Live! 衣装资料库 (你们这些拉拉人穿的到底是什么)
-echo   正在启动本地服务并自动打开浏览器...
+echo   Love Live! Costume Archive
+echo   Starting local servers and opening browser...
 echo ========================================================
 echo.
 
-:: 在后台延迟 3 秒自动呼起默认浏览器打开前端页面
+:: Launch browser in background after 3 seconds
 start "" cmd /c "timeout /t 3 /nobreak >nul & start http://localhost:5173"
 
-:: 启动前端 Vite 与后端 Node.js API 联合开发服务
-pnpm run dev
+:: Run servers via call
+call pnpm run dev
+if %errorlevel% neq 0 (
+  echo.
+  echo [ERROR] Server exited with code %errorlevel%.
+  pause
+)
