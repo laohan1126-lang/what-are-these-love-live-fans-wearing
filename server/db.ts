@@ -19,6 +19,8 @@ if (!fs.existsSync(UPLOADS_DIR)) {
 }
 
 export const db = new Database(DB_FILE);
+db.pragma('journal_mode = WAL');
+db.pragma('busy_timeout = 5000');
 db.pragma('foreign_keys = ON');
 
 export function initDatabase() {
@@ -91,6 +93,7 @@ export function initDatabase() {
       original_filename TEXT,
       is_primary INTEGER DEFAULT 0,
       caption TEXT,
+      category TEXT DEFAULT 'illustration', -- 'illustration', 'real_life', 'detail'
       sort_order INTEGER DEFAULT 0,
       FOREIGN KEY (variant_id) REFERENCES costume_variants(id) ON DELETE CASCADE
     );
@@ -106,6 +109,12 @@ export function initDatabase() {
       FOREIGN KEY (variant_id) REFERENCES costume_variants(id) ON DELETE CASCADE
     );
   `);
+
+  try {
+    db.exec("ALTER TABLE costume_images ADD COLUMN category TEXT DEFAULT 'illustration'");
+  } catch {
+    // 忽略已存在列的报错
+  }
 
   seedData();
 }

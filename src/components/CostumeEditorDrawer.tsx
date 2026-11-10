@@ -58,12 +58,15 @@ export const CostumeEditorDrawer: React.FC<CostumeEditorDrawerProps> = ({
   );
 
   // 图片列表
-  const [images, setImages] = useState<{ id?: string; file_path: string; original_filename?: string; is_primary: boolean }[]>(
+  const [images, setImages] = useState<
+    { id?: string; file_path: string; original_filename?: string; is_primary: boolean; category: 'illustration' | 'real_life' | 'detail' }[]
+  >(
     initialCostume?.images?.map(img => ({
       id: img.id,
       file_path: img.file_path,
       original_filename: img.original_filename,
       is_primary: Boolean(img.is_primary),
+      category: img.category || 'illustration',
     })) || []
   );
 
@@ -109,6 +112,7 @@ export const CostumeEditorDrawer: React.FC<CostumeEditorDrawerProps> = ({
             file_path: res.file_path,
             original_filename: res.original_filename,
             is_primary: prev.length === 0 && i === 0,
+            category: prev.some(p => p.category === 'illustration') ? 'real_life' : 'illustration',
           },
         ]);
       }
@@ -394,25 +398,42 @@ export const CostumeEditorDrawer: React.FC<CostumeEditorDrawerProps> = ({
               {images.map((img, idx) => (
                 <div
                   key={idx}
-                  className="relative aspect-[4/3] rounded-xl overflow-hidden border border-sky-400/20 bg-slate-950 group"
+                  className="flex flex-col gap-1 rounded-xl p-1.5 border border-sky-400/20 bg-slate-950 group"
                 >
-                  <img
-                    src={img.file_path}
-                    alt=""
-                    className="w-full h-full object-cover object-top"
-                  />
-                  {img.is_primary && (
-                    <span className="absolute bottom-1 left-1 text-[9px] px-1 py-0.2 rounded bg-teal-500 text-slate-950 font-bold">
-                      主图
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => setImages(images.filter((_, i) => i !== idx))}
-                    className="absolute top-1 right-1 w-5 h-5 rounded bg-rose-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-900">
+                    <img
+                      src={img.file_path}
+                      alt=""
+                      className="w-full h-full object-cover object-top"
+                    />
+                    {img.is_primary && (
+                      <span className="absolute bottom-1 left-1 text-[9px] px-1 py-0.2 rounded bg-teal-500 text-slate-950 font-bold">
+                        主图
+                      </span>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setImages(images.filter((_, i) => i !== idx))}
+                      className="absolute top-1 right-1 w-5 h-5 rounded bg-rose-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                    </button>
+                  </div>
+
+                  {/* 属性分类选择 */}
+                  <select
+                    value={img.category || 'illustration'}
+                    onChange={e => {
+                      const next = [...images];
+                      next[idx].category = e.target.value as any;
+                      setImages(next);
+                    }}
+                    className="w-full text-[10px] bg-slate-900 border border-white/10 rounded px-1.5 py-0.5 text-slate-200 focus:outline-none"
                   >
-                    <Trash2 className="w-3 h-3" />
-                  </button>
+                    <option value="illustration">🎨 官方设定插画</option>
+                    <option value="real_life">👗 现实实物 / COS</option>
+                    <option value="detail">🔍 细节特写</option>
+                  </select>
                 </div>
               ))}
 

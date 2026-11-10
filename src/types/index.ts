@@ -55,6 +55,7 @@ export interface CostumeImage {
   original_filename?: string;
   is_primary: boolean;
   caption?: string;
+  category?: 'illustration' | 'real_life' | 'detail';
   sort_order: number;
 }
 

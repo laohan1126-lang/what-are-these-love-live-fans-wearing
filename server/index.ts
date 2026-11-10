@@ -389,8 +389,8 @@ app.post('/api/costumes', (req, res) => {
       // 插入图片
       if (Array.isArray(payload.images)) {
         const insertImage = db.prepare(`
-          INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, sort_order)
-          VALUES (?, ?, ?, ?, ?, ?, ?)
+          INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `);
         payload.images.forEach((img: any, idx: number) => {
           const imgId = img.id || `img_${Date.now()}_${idx}`;
@@ -401,6 +401,7 @@ app.post('/api/costumes', (req, res) => {
             img.original_filename || null,
             img.is_primary ? 1 : (idx === 0 ? 1 : 0),
             img.caption || null,
+            img.category || 'illustration',
             idx + 1
           );
         });
@@ -492,8 +493,8 @@ app.put('/api/costumes/:id', (req, res) => {
       if (Array.isArray(payload.images)) {
         db.prepare(`DELETE FROM costume_images WHERE variant_id = ?`).run(id);
         const insertImage = db.prepare(`
-          INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, sort_order)
-          VALUES (?, ?, ?, ?, ?, ?, ?)
+          INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `);
         payload.images.forEach((img: any, idx: number) => {
           const imgId = img.id || `img_${Date.now()}_${idx}`;
@@ -504,6 +505,7 @@ app.put('/api/costumes/:id', (req, res) => {
             img.original_filename || null,
             img.is_primary ? 1 : (idx === 0 ? 1 : 0),
             img.caption || null,
+            img.category || 'illustration',
             idx + 1
           );
         });

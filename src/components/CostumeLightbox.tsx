@@ -44,6 +44,29 @@ export const CostumeLightbox: React.FC<CostumeLightboxProps> = ({
 
         {/* 左侧：大图浏览区域 */}
         <div className="relative flex-1 bg-slate-950 flex flex-col items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-sky-400/15">
+          {/* 图像类型徽标与说明 */}
+          <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+            {currentImage.category === 'real_life' ? (
+              <span className="text-xs px-2.5 py-1 rounded-full bg-rose-950/90 border border-rose-500/50 text-rose-200 backdrop-blur-md shadow-md font-semibold">
+                👗 现实实物 / COS 舞台对照
+              </span>
+            ) : currentImage.category === 'detail' ? (
+              <span className="text-xs px-2.5 py-1 rounded-full bg-amber-950/90 border border-amber-500/50 text-amber-200 backdrop-blur-md shadow-md font-semibold">
+                🔍 面料与版型细节特写
+              </span>
+            ) : (
+              <span className="text-xs px-2.5 py-1 rounded-full bg-teal-950/90 border border-teal-500/50 text-teal-200 backdrop-blur-md shadow-md font-semibold">
+                🎨 官方设定原画母版
+              </span>
+            )}
+
+            {currentImage.caption && (
+              <span className="hidden sm:inline-block text-[11px] text-slate-300 bg-slate-900/80 px-2 py-0.5 rounded border border-white/10 backdrop-blur-md max-w-xs truncate">
+                {currentImage.caption}
+              </span>
+            )}
+          </div>
+
           {currentImage.file_path ? (
             <div className={`w-full h-full flex items-center justify-center p-4 overflow-auto ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`} onClick={() => setIsZoomed(!isZoomed)}>
               <img
