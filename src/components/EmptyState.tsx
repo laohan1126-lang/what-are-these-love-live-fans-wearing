@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shirt, Plus, Sparkles } from 'lucide-react';
+import { Plus, Sparkles } from 'lucide-react';
 
 interface EmptyStateProps {
   characterName: string;
@@ -15,41 +15,41 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   isCurating = false,
 }) => {
   return (
-    <div className="rounded-2xl border border-sky-400/15 bg-gradient-to-b from-slate-900/60 to-slate-950/80 p-12 text-center flex flex-col items-center justify-center max-w-lg mx-auto my-12 backdrop-blur-md">
-      <div className="w-16 h-16 rounded-2xl bg-teal-500/10 border border-teal-400/25 flex items-center justify-center text-teal-400 mb-4 shadow-[0_0_25px_-5px_rgba(45,212,191,0.3)]">
-        <Shirt className="w-8 h-8 stroke-1" />
-      </div>
+    <div className="border-y border-[#e5b869]/25 py-12 px-6 text-center flex flex-col items-center justify-center max-w-xl mx-auto my-8 select-none">
+      <span className="font-mono text-[10px] tracking-[0.25em] text-[#e5b869] uppercase mb-2">
+        EMPTY FOLIO · 尚无收录卷宗
+      </span>
 
-      <h3 className="text-base font-bold text-slate-200 mb-1">
-        暂未收录【{characterName}】的衣装档案
+      <h3 className="serif-title text-xl font-bold text-slate-100 mb-2">
+        暂未著录【{characterName}】的衣装手帖
       </h3>
 
-      <p className="text-xs text-slate-400 max-w-sm mb-6 leading-relaxed">
-        本资料库遵循严谨的官方考据原则。您可以一键启动自动化脚本检索官方维基与数据库，自动下载立绘并入库；也可手动录入。
+      <p className="text-xs text-slate-400 max-w-md mb-6 leading-relaxed">
+        本手帖严守数据真实性原则，未核实衣装绝不伪造占位。您可启动社区卡面检索入库（自动标记为待核实），或手动著录首套官方衣装。
       </p>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         {onCurateCostumes && (
           <button
+            id="action-curate"
+            type="button"
             onClick={onCurateCostumes}
             disabled={isCurating}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-[0_0_20px_-5px_rgba(14,165,233,0.5)] active:scale-95 ${
-              isCurating
-                ? 'bg-sky-500/30 text-sky-200 border border-sky-400/40 cursor-wait'
-                : 'text-slate-950 bg-sky-400 hover:bg-sky-300'
-            }`}
+            className="atelier-zone px-4 py-2 bg-[#2dd4bf] hover:bg-[#5eead4] text-[#041210] text-xs font-bold tracking-wider flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50"
           >
-            <Sparkles className={`w-4 h-4 ${isCurating ? 'animate-spin' : ''}`} />
-            <span>{isCurating ? '正在检索下载中...' : '自动扩充官方图鉴'}</span>
+            <Sparkles className={`w-3.5 h-3.5 ${isCurating ? 'animate-spin' : ''}`} />
+            <span>{isCurating ? '正在检索卡面中…' : '✦ 补录社区卡面'}</span>
           </button>
         )}
 
         <button
+          id="action-add"
+          type="button"
           onClick={onAddCostume}
-          className="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 transition-all flex items-center gap-1.5 border border-white/10 active:scale-95"
+          className="atelier-zone px-4 py-2 border-b border-[#e5b869]/60 hover:border-[#e5b869] bg-white/[0.04] hover:bg-white/[0.08] text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition-all cursor-pointer"
         >
-          <Plus className="w-3.5 h-3.5" />
-          <span>手动录入</span>
+          <Plus className="w-3.5 h-3.5 text-[#e5b869]" />
+          <span>+ 手动著录衣装</span>
         </button>
       </div>
     </div>

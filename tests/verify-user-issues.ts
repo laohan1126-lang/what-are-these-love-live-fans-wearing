@@ -38,8 +38,8 @@ async function testAll() {
 
   // 莲之空
   const cerise = getSubunit('cerise_bouquet');
-  assert.strictEqual(cerise.length, 4, 'スリーズブーケ必须有 4 人 (含锦上麦卡)');
-  assert(cerise.some(m => m.id === 'maika-kinjo'), 'スリーズブーケ必须包含锦上麦卡');
+  assert.strictEqual(cerise.length, 4, 'スリーズブーケ必须有 4 人 (含锦上舞香)');
+  assert(cerise.some(m => m.id === 'maika-kinjo'), 'スリーズブーケ必须包含锦上舞香');
 
   const mirakra = getSubunit('mira_cra_park');
   assert.strictEqual(mirakra.length, 4, 'みらくらぱーく！必须有 4 人 (含令泽葵)');

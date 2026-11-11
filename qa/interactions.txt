@@ -1,0 +1,6 @@
+Viewport 1440x900: overflow=False, scroll={'x': 0, 'y': 0}
+Viewport 1366x768: overflow=False, scroll={'x': 0, 'y': 0}
+Viewport 390x844: overflow=False, scroll={'x': 0, 'y': 0}
+Motion 3 frames captured: distinct_signatures=3
+Hidden-character mode toggled and captured to qa/hidden-character.png
+Lightbox opened and captured to qa/lightbox-open.png

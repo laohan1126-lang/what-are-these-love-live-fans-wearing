@@ -20,6 +20,8 @@ export const CostumeCard: React.FC<CostumeCardProps> = ({
     switch (type) {
       case 'game_card': return '手游卡面';
       case 'seiyuu_live': return '声优 Live';
+      case 'live_stage': return '声优 Live 实穿';
+      case 'cosplay_photo': return 'Cosplay 实拍';
       case 'anime': return '动画';
       case 'cd_jacket': return 'CD 封面';
       case 'magazine': return '杂志';

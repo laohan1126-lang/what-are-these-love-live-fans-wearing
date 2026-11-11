@@ -75,16 +75,17 @@ async function runTests() {
   // AC-4: 缺失数据容错（未录入角色与无图记录不崩溃）
   // ----------------------------------------------------
   console.log('【测试 AC-4】未录入衣装角色容错与空状态...');
-  const kanataCostumes = db.prepare(`SELECT * FROM costume_variants WHERE character_id = 'omi-kanata'`).all();
-  assert.strictEqual(kanataCostumes.length, 0, '近江彼方首期应保持空状态（0套）');
-  // 验证查询无图衣装时不报错
-  const noImgVariant = db.prepare(`
-    SELECT cv.*, ci.file_path FROM costume_variants cv
-    LEFT JOIN costume_images ci ON cv.id = ci.variant_id
+  const missingCharacterId = '__test-missing-character__';
+  const missingCostumes = db.prepare(`SELECT * FROM costume_variants WHERE character_id = ?`).all(missingCharacterId);
+  assert.strictEqual(missingCostumes.length, 0, '不存在的角色应返回空数组而不抛异常');
+  const kanataImages = db.prepare(`
+    SELECT ci.* FROM costume_images ci
+    JOIN costume_variants cv ON cv.id = ci.variant_id
     WHERE cv.character_id = 'omi-kanata'
   `).all();
-  assert(Array.isArray(noImgVariant), '查询空角色不应抛出异常');
-  console.log('  ✓ AC-4 PASS: 缺失数据/无衣装角色表现优雅，绝无虚假捏造数据。\n');
+  assert(kanataImages.length > 0, '近江彼方补图后应至少包含一张图片');
+  assert(kanataImages.some((img: any) => img.category === 'real_life'), '近江彼方应包含真人实拍对照图');
+  console.log('  ✓ AC-4 PASS: 缺失数据查询表现优雅，补图角色已具备真实视觉资产。\n');
   passedCount++;
 
   // ----------------------------------------------------

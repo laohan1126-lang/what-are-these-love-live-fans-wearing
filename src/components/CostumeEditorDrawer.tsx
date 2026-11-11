@@ -504,6 +504,8 @@ export const CostumeEditorDrawer: React.FC<CostumeEditorDrawerProps> = ({
                       >
                         <option value="game_card">手游卡面</option>
                         <option value="seiyuu_live">声优 Live 演出服</option>
+                        <option value="live_stage">声优 Live 实穿照</option>
+                        <option value="cosplay_photo">Cosplay 实拍</option>
                         <option value="anime">动画</option>
                         <option value="cd_jacket">CD 封面</option>
                         <option value="magazine">杂志</option>

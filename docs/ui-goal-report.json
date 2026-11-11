@@ -1,0 +1,144 @@
+{
+  "protocol_version": "1.6",
+  "project": "Love Live! 衣装资料库 (Costume Archive · Stage Atelier & Costume Folio)",
+  "iteration": 2,
+  "goal": {
+    "surface_mode": "Operate",
+    "change_scope": "redesign",
+    "requires_independent_review": true,
+    "primary_action": "在左侧双折屏风检视台并置比对《決意の光》2D设定原画 (#main-image) 与3D真人舞台实穿，并通过右侧开放考据卷宗栏执行视轨切换 (#primary-action)、原画检视 (#action-lightbox)、卷宗修订 (#action-edit)、手动著录 (#action-add) 与社区补录 (#action-curate)",
+    "design_thesis": "以三船栞子《決意の光》夜间和风现代舞台后台为空间原型，彻底废除旧版深色SaaS仪表盘的四层卡片套卡片结构，依靠开放排印天际线、1px金丝/翠玉细线、双折屏风检视台与右侧开放考据卷宗栏建立清晰层级",
+    "visual_identity": "Stage Atelier & Costume Folio (夜间和风现代舞台后台 · 衣桁与衣装考据手帖)：深绀夜幕底色 (#070b12) + 翠玉青主强调 (#2dd4bf) + 金丝织锦细线 (#e5b869) + 定制SVG书法字标 (#display-lettering) + 3态指针玉印书签卫星动效 (#signature-effect)",
+    "distinct_direction": "迁移 megu-fm-v7 私人标杆的无嵌套开放天际线、右侧无遮挡舞台题图、1px细线分栏与首屏动作闭环机制，但色彩、材质、排印与母题完全派生自三船栞子《決意の光》和风振袖羽织与舞台棱镜，绝不克隆电台/频率/SaaS卡片套路",
+    "protected_features": [
+      "6大企划系列与历代成员切换（TopNav 排印刻度尺 + 角色检索 + 名簿抽屉 MemberDrawer）",
+      "三维正交筛选（核实状态 / 出处类型 / 觉醒形态）",
+      "2D设定原画 × 3D现世实穿双折屏风同屏对比与单轨切换 (#primary-action)",
+      "衣桁卷宗编号切装条 (Kimono Rack Folio Strip) 与键盘方向键切装",
+      "全屏原画检视灯箱 (#action-lightbox / CostumeLightbox 150% 放大与多帧切换)",
+      "手动著录衣装 (#action-add)、修订考据卷宗 (#action-edit) 与小红书社区实穿补录 (#action-curate)",
+      "官方权威出处外链溯源与本地 SQLite + 图片 ZIP 快照备份恢复 (BackupModal)"
+    ],
+    "anti_goals": [
+      "严禁卡片套卡片 / 盒子套盒子 (No box-in-box, no card-in-card, no nested pill bars)",
+      "严禁文字、徽章或按钮遮挡三船栞子或任何角色的面部、五官与手部安全区",
+      "严禁编造未经核实的日文衣装原名或伪造已核实状态",
+      "严禁照搬通用深色 SaaS 管理后台或直接克隆 megu-fm-v7 的电台频率符号"
+    ],
+    "asset_roles": [
+      "#theme-image (/assets/theme_stage_shioriko.jpg): 顶部右侧无遮挡舞台环境窗，营造《決意の光》翠玉棱镜与和风舞台纵深",
+      "#display-lettering (/assets/ketsui-lettering.svg): 左上定制 SVG 书法与家纹玉印组合字标，确立非系统字体的视觉锚点",
+      "#main-image (/uploads/shioriko_ketsui_no_hikari.jpg): 左侧双折屏风检视台核心 2D 官方设定原画，与右侧 3D 真人实穿正面立姿形成同屏结构对照",
+      "#signature-effect: 4枚翠玉/金丝/流光蓝/朱印书签与菱形棱镜 SVG 卫星组成的指针跟随与点击绽放动效层"
+    ],
+    "rendered_contract": {
+      "required": true,
+      "requires_actual_application": true,
+      "source_revision": "9a36f8bcc8b30abf715ef0b722f575fdbc5cf336",
+      "anchor": "#main-image",
+      "controls": [
+        "#primary-action",
+        "#action-lightbox",
+        "#action-edit",
+        "#action-add",
+        "#action-curate"
+      ],
+      "assets": [
+        "#theme-image",
+        "#display-lettering"
+      ],
+      "viewports": [
+        {
+          "width": 1440,
+          "height": 900,
+          "control_side": "right"
+        },
+        {
+          "width": 1366,
+          "height": 768,
+          "control_side": "right"
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "motion": [
+        "#signature-effect"
+      ]
+    }
+  },
+  "evidence": {
+    "screenshots": {
+      "desktop": "qa/desktop.png",
+      "laptop": "qa/laptop-1366.png",
+      "mobile": "qa/mobile.png",
+      "motion_before": "qa/motion-before.png",
+      "hover_middle": "qa/hover-middle.png",
+      "motion_after": "qa/motion-after.png",
+      "hidden_character": "qa/hidden-character.png",
+      "lightbox": "qa/lightbox-open.png"
+    },
+    "interaction_log": "qa/interactions.txt",
+    "baseline_comparison": "qa/baseline-compare.md",
+    "review_notes": "qa/visual-review.md",
+    "rendered_receipt": "qa/rendered-receipt.json",
+    "independent_review": {
+      "required": true,
+      "independent": true,
+      "reviewer": "research subagent 4226ce3b-34d1-4c35-ab4b-60c359d633f5 (Independent UI Visual Critic)",
+      "status": "PASS",
+      "receipt": "qa/independent-review-receipt.md"
+    }
+  },
+  "checks": {
+    "hierarchy_and_containers": {
+      "status": "PASS",
+      "evidence": "TopNav、CharacterMasthead、WorkbenchStage、CostumeLightbox 与 MemberDrawer 全面移除圆角卡片套卡片结构，改用 1px 金丝/翠玉细线与字号对比建立层级（见 qa/desktop.png、qa/laptop-1366.png）。"
+    },
+    "typography_and_overlap": {
+      "status": "PASS",
+      "evidence": "左上搭载定制 SVG 书法与家纹字标 #display-lettering (/assets/ketsui-lettering.svg)，配合高对比度衬线主标题、微倾日文台词与等宽编号；全视口零文字或按钮遮挡角色面部与手部（见 qa/rendered-receipt.json）。"
+    },
+    "assets_and_semantics": {
+      "status": "PASS",
+      "evidence": "#theme-image、#display-lettering 与 #main-image 在 1440x900、1366x768、390x844 下均实现 image_complete: true 且 natural_width > 0；待识名衣装保持诚实 NO IMAGE 与待考据标识。"
+    },
+    "visual_motif": {
+      "status": "PASS",
+      "evidence": "统一贯彻「Stage Atelier & Costume Folio · 夜间和风现代舞台后台与衣装考据手帖」母题：屏风检视台（壱·2D × 弐·3D）、衣桁卷宗编号条、玉印核实印记与金丝细线贯穿全局。"
+    },
+    "anti_clone": {
+      "status": "PASS",
+      "evidence": "在 docs/ui-goal.md 明确记录从 megu-fm-v7 迁移的 5 项结构机制与禁止照搬的 5 项电台符号，色彩与版式完全围绕三船栞子《決意の光》舞台与衣装考据构建。"
+    },
+    "regression": {
+      "status": "PASS",
+      "evidence": "在 qa/baseline-compare.md 对比 qa/baseline-desktop.png 与 qa/desktop.png：消除旧版四层深色 SaaS 卡片嵌套，默认呈现《決意の光》2D×3D 双折同屏对照，首屏信息密度与审美显著提升。"
+    },
+    "interaction_states": {
+      "status": "PASS",
+      "evidence": "已实测并截图验证默认态 (qa/desktop.png)、指针悬停态 (qa/hover-middle.png)、点击触发态 (qa/motion-after.png)、原画检视灯箱态 (qa/lightbox-open.png) 与無像試練态 (qa/hidden-character.png)。"
+    },
+    "responsive_accessibility": {
+      "status": "PASS",
+      "evidence": "1440x900、1366x768、390x844 三大视口在 scroll(0,0) 下 horizontal_overflow_px 均为 0，核心动作按钮 hit_test 全部为 true，且支持键盘方向键、ESC 与 prefers-reduced-motion。"
+    },
+    "existing_function_contract": {
+      "status": "PASS",
+      "evidence": "pnpm run build 零报错通过，pnpm test 全部 10/10 项验收测试 (AC-1 ~ AC-10) 100% 通过；企划切换、三维筛选、2D×3D 视轨切换、新增/编辑/补录与 ZIP 备份恢复全部可用。"
+    },
+    "motion_and_interactivity": {
+      "status": "PASS",
+      "evidence": "实现入场编排、#signature-effect 指针跟随与点击绽放、IntersectionObserver 滚动揭示、视轨切换与舞台波纹/玉印微动效共 5 层动效，qa/rendered-receipt.json 记录 3 帧不同 motion_signature。"
+    },
+    "character_integration": {
+      "status": "PASS",
+      "evidence": "从三船栞子《決意の光》提取深绀、翠玉、金丝、绯红朱印色彩与和风折扇/屏风构成，右侧 #theme-image 零遮挡展示，且开启無像試練 (qa/hidden-character.png) 隐去人像后角色世界依然独立成立。"
+    }
+  },
+  "user_review": {
+    "status": "PENDING",
+    "note": "所有工程探针、11项质量门禁与独立子代理视觉审查均已通过，现呈交用户进行最终审美验收 (READY_FOR_USER_REVIEW)。"
+  }
+}

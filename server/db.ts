@@ -277,7 +277,7 @@ function seedData() {
     insertCharacter.run('izumi-katsuragi', '桂城 泉', '桂城泉', '105期', 'active', '#227D51', 30);
 
     // 106期生 (最新成员)
-    insertCharacter.run('maika-kinjo', '錦上 マイカ', '锦上麦卡', '106期', 'active', '#E95295', 31);
+    insertCharacter.run('maika-kinjo', '錦上 マイカ', '锦上舞香', '106期', 'active', '#E95295', 31);
     insertCharacter.run('aoi-reisawa', '令沢 葵', '令泽葵', '106期', 'active', '#2A6EBB', 32);
     insertCharacter.run('mion-shinowa', '紫輪 みおん', '紫轮美音', '106期', 'active', '#8B81C3', 33);
 
@@ -445,6 +445,8 @@ function seedData() {
 
     // 4. 首批真实考据衣装录入 (三船栞子、上原步梦、安养寺姬芽 + 一套待识别样例)
     // 栞子《決意の光》
+    // 4. 精选对照组衣装注入 (2D官方插画 ↔ 声优舞台真人实穿对照)
+    // 1) 三船栞子《決意の光》
     const themeShioriko = 'theme-ketsui-no-hikari';
     db.prepare(`
       INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
@@ -453,7 +455,7 @@ function seedData() {
 
     const variantShioriko = 'variant-shioriko-ketsui-no-hikari';
     db.prepare(`
-      INSERT OR IGNORE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      INSERT OR REPLACE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
       variantShioriko,
@@ -469,20 +471,49 @@ function seedData() {
     );
 
     db.prepare(`
-      INSERT OR IGNORE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, sort_order)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
       'img-shioriko-01',
       variantShioriko,
       '/uploads/shioriko_ketsui_no_hikari.jpg',
       'shioriko_ketsui_no_hikari.jpg',
       1,
-      'SIFAS 觉醒后舞台主视觉',
+      'SIFAS 觉醒后舞台主视觉 (1024x630 官方原画)',
+      'illustration',
       1
     );
 
     db.prepare(`
-      INSERT OR IGNORE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-shioriko-real-model',
+      variantShioriko,
+      '/uploads/shioriko_ketsui_cos_model.jpg',
+      'shioriko_ketsui_cos_model.jpg',
+      1,
+      '三船栞子《決意の光》真人正面立姿对照：和风开襟振袖羽织、金边和风花饰、雪白百褶裙与白青羽毛头饰 (小红书@全熟小龙虾 漫展现场展拍)',
+      'real_life',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-shioriko-detail-01',
+      variantShioriko,
+      '/uploads/shioriko_ketsui_real_01.jpg',
+      'shioriko_ketsui_real_01.jpg',
+      0,
+      '《決意の光》成衣打版版型剪裁：和风外套、金丝滚边暗纹与百褶裙剪裁 (细节特写)',
+      'detail',
+      2
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `).run(
       'src-shioriko-01',
@@ -494,7 +525,20 @@ function seedData() {
       'SIFAS 虹咲第17章登场，三船栞子加入同好会后首套专属 Solo 演出服'
     );
 
-    // 上原步梦《夢への一歩》
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-shioriko-xhs-cos',
+      variantShioriko,
+      'cosplay_photo',
+      'none',
+      '小红书 @全熟小龙虾 漫展现场《決意の光》正面模特展拍',
+      'https://www.xiaohongshu.com/explore/6954c8a4000000001e00aa16',
+      '正面半身立姿，完全正对镜头展现和风羽织振袖、胸前金边纹饰与雪白百褶裙全貌'
+    );
+
+    // 2) 上原步梦《夢への一歩》
     const themeAyumu = 'theme-yume-e-no-ippo';
     db.prepare(`
       INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
@@ -503,7 +547,7 @@ function seedData() {
 
     const variantAyumu = 'variant-ayumu-yume-e-no-ippo';
     db.prepare(`
-      INSERT OR IGNORE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      INSERT OR REPLACE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
       variantAyumu,
@@ -519,7 +563,49 @@ function seedData() {
     );
 
     db.prepare(`
-      INSERT OR IGNORE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-ayumu-2d-01',
+      variantAyumu,
+      '/uploads/ayumu_yume_e_no_ippo_2d.png',
+      'ayumu_yume_e_no_ippo_2d.png',
+      1,
+      'SIFAS UR 覚醒後 3600x1800 官方超清原画母版：粉白格纹百褶裙与胸前玫瑰花圈',
+      'illustration',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-ayumu-real-model',
+      variantAyumu,
+      '/uploads/ayumu_yume_cos_model.jpg',
+      'ayumu_yume_cos_model.jpg',
+      1,
+      '上原步梦《夢への一歩》真人正面全身立姿对照：粉白洋装、胸前玫瑰花圈、腰间大蝴蝶结与白色长筒袜 (小红书@噜噜噜噜 舞台出片)',
+      'real_life',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-ayumu-detail-01',
+      variantAyumu,
+      '/uploads/azuna_dream_land_live.jpg',
+      'azuna_dream_land_live.jpg',
+      0,
+      '声优グランプリ 官方特写：A・ZU・NA 游乐园打歌服配饰与腰包细节',
+      'detail',
+      2
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `).run(
       'src-ayumu-01',
@@ -531,7 +617,347 @@ function seedData() {
       '动画第1季第1话插入曲及官方 1st 专辑收录曲衣装'
     );
 
-    // 安养寺姬芽《Dream Believers》
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-ayumu-xhs-cos',
+      variantAyumu,
+      'cosplay_photo',
+      'none',
+      '小红书 @噜噜噜噜 夢への一步 正面全身舞台立姿出片',
+      'https://www.xiaohongshu.com/explore/6ab9b020000000000200e465',
+      '正面全身立姿，正对镜头展现粉白抹胸洋装、胸前玫瑰花圈与蓬蓬裙全貌'
+    );
+
+    // 3) 钟岚珠《Colorful Dreams! Colorful Smiles!》
+    const themeLanzhuCdcs = 'theme-lanzhu-colorful-dreams';
+    db.prepare(`
+      INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(themeLanzhuCdcs, 'Colorful Dreams! Colorful Smiles!', '多彩梦想！多彩笑容！', 'anime_op', '动画2期 OP 演出服，钟岚珠正式加入同好会后的 13 人打歌服');
+
+    const variantLanzhuCdcs = 'variant-lanzhu-colorful-dreams';
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      variantLanzhuCdcs,
+      themeLanzhuCdcs,
+      'zhong-lanzhu',
+      'Colorful Dreams! Colorful Smiles!（鐘 嵐珠Ver.）',
+      'Colorful Dreams 钟岚珠版',
+      'identified',
+      'verified',
+      '白色毛绒披肩长裙、裙摆饰有七彩琴键与音符暗纹、配毛绒耳罩与黑色手套。',
+      new Date().toISOString(),
+      new Date().toISOString()
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-lanzhu-cdcs-2d',
+      variantLanzhuCdcs,
+      '/uploads/lanzhu_colorful_dreams_idolized_2d.png',
+      'lanzhu_colorful_dreams_idolized_2d.png',
+      1,
+      'SIFAS 覚醒後 3600x1800 官方超清原画母版：七彩琴键裙摆与毛绒披风',
+      'illustration',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-lanzhu-real-model',
+      variantLanzhuCdcs,
+      '/uploads/lanzhu_colorful_dreams_cos_model.jpg',
+      'lanzhu_colorful_dreams_cos_model.jpg',
+      1,
+      '钟岚珠《Colorful Dreams! Colorful Smiles!》真人正面立姿对照：白色毛绒披肩、毛绒耳罩、七彩琴键暗纹短裙与毛球手套 (小红书@歌剧悖论 舞台出片)',
+      'real_life',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-lanzhu-cdcs-detail',
+      variantLanzhuCdcs,
+      '/uploads/lanzhu_eutopia_live_real.jpg',
+      'lanzhu_eutopia_live_real.jpg',
+      0,
+      '法元明菜（钟岚珠役）现场特写：舞台 2D 大屏幕与真人实穿同框对照 (舞台细节特写)',
+      'detail',
+      2
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-lanzhu-cdcs-01',
+      variantLanzhuCdcs,
+      'game_card',
+      'awakened',
+      'SIFAS SR【Colorful Dreams! Colorful Smiles!】覚醒後',
+      'https://idol.st/allstars/card/736/',
+      '动画2期 OP 官方限定卡面，附带 3D 舞台演出打歌服'
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-lanzhu-xhs-cos',
+      variantLanzhuCdcs,
+      'cosplay_photo',
+      'none',
+      '小红书 @歌剧悖论 舞台现场《Colorful Dreams!》钟岚珠正面展示',
+      'https://www.xiaohongshu.com/explore/67a9f9c70000000018019a78',
+      '正面完整立姿，清晰展现白色毛绒披肩、毛绒耳罩、七彩琴键暗纹与短靴全貌'
+    );
+
+    // 4) 高海千歌《青空Jumping Heart》
+    const themeChikaAozora = 'theme-chika-aozora-jumping-heart';
+    db.prepare(`
+      INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(themeChikaAozora, '青空Jumping Heart', '青空Jumping Heart', 'anime_op', '动画1期 OP 演出服，Aqours 经典海军风打歌服');
+
+    const variantChikaAozora = 'variant-chika-aozora-jumping-heart';
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      variantChikaAozora,
+      themeChikaAozora,
+      'takami-chika',
+      '青空Jumping Heart（高海千歌Ver.）',
+      '青空Jumping Heart 千歌版',
+      'identified',
+      'verified',
+      '海蓝色双排扣小外套、百褶裙拼黄白波浪滚边、水手礼帽与亮黄领结。',
+      new Date().toISOString(),
+      new Date().toISOString()
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-chika-aozora-2d',
+      variantChikaAozora,
+      '/uploads/chika_aozora_2d.png',
+      'chika_aozora_2d.png',
+      1,
+      'SIFAS 覚醒後 3600x1800 官方超清原画母版：海蓝双排扣水手制服与百褶裙',
+      'illustration',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-chika-real-model',
+      variantChikaAozora,
+      '/uploads/chika_aozora_cos_model.jpg',
+      'chika_aozora_cos_model.jpg',
+      1,
+      '高海千歌《青空Jumping Heart》真人正面直拍对照：湖水蓝双排扣小马甲、红色大领结、亮片双层百褶裙与水手小礼帽 (小红书@_1743_ 出片)',
+      'real_life',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-chika-aozora-detail',
+      variantChikaAozora,
+      '/uploads/aqours_5th_live.jpg',
+      'aqours_5th_live.jpg',
+      0,
+      '声優グランプリ 官方特写：Aqours 巨蛋演唱会舞台演出服结构与彩虹灯海 (细节特写)',
+      'detail',
+      2
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-chika-aozora-01',
+      variantChikaAozora,
+      'game_card',
+      'awakened',
+      'SIFAS SR【青空Jumping Heart】覚醒後',
+      'https://idol.st/allstars/card/150/',
+      'Love Live! Sunshine!! 动画1期片头曲专属打歌服'
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-chika-xhs-cos',
+      variantChikaAozora,
+      'cosplay_photo',
+      'none',
+      '小红书 @_1743_ 青空Jumping Heart 正面直拍展示',
+      'https://www.xiaohongshu.com/explore/6a7ef7c5000000000503130c',
+      '正面对准镜头直拍，近景清晰展现水手服打歌服、胸前大领结与亮片百褶裙细节'
+    );
+
+    // 5) 高坂穗乃果《僕らのLIVE 君とのLIFE》
+    const themeHonokaBorarara = 'theme-honoka-borarara';
+    db.prepare(`
+      INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(themeHonokaBorarara, '僕らのLIVE 君とのLIFE', '我们的LIVE 与你的LIFE', 'single_cd', 'μ’s 出道单曲标志性打歌服');
+
+    const variantHonokaBorarara = 'variant-honoka-borarara';
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      variantHonokaBorarara,
+      themeHonokaBorarara,
+      'kousaka-honoka',
+      '僕らのLIVE 君とのLIFE（高坂穂乃果Ver.）',
+      '我们的LIVE 与你的LIFE 穗乃果版',
+      'identified',
+      'verified',
+      '红白交领领结、金色胸排系绳、红白拼接百褶裙与红黑长筒袜。',
+      new Date().toISOString(),
+      new Date().toISOString()
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-honoka-bora-2d',
+      variantHonokaBorarara,
+      '/uploads/honoka_borarara_2d.png',
+      'honoka_borarara_2d.png',
+      1,
+      'SIFAS 覚醒後 3600x1800 官方超清原画母版：红金领结与百褶裙',
+      'illustration',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-honoka-real-model',
+      variantHonokaBorarara,
+      '/uploads/honoka_borarara_cos_model.jpg',
+      'honoka_borarara_cos_model.jpg',
+      1,
+      '高坂穗乃果《僕らのLIVE 君とのLIFE》真人正面模特立正对照：红色燕尾外套、交叉金排扣马甲、红白百褶短裙与高筒马靴 (小红书@弧泥弧图 出片)',
+      'real_life',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-honoka-bora-01',
+      variantHonokaBorarara,
+      'game_card',
+      'awakened',
+      'SIFAS SR【僕らのLIVE 君とのLIFE】覚醒後',
+      'https://idol.st/allstars/card/148/',
+      'μ’s 传奇原点 1st 单曲打歌服'
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-honoka-xhs-cos',
+      variantHonokaBorarara,
+      'cosplay_photo',
+      'none',
+      '小红书 @弧泥弧图 我们的live与你的life 正面全身模特立展',
+      'https://www.xiaohongshu.com/explore/6ae6f4e3000000000e034664',
+      '正面笔直站立模特视角，清晰展示领结、马甲排扣、百褶裙与长筒马靴全部结构'
+    );
+
+    // 6) 日野下花帆《スリーズブーケ ライブステージ衣装》
+    const themeKahoCerise = 'theme-kaho-cerise-bouquet';
+    db.prepare(`
+      INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(themeKahoCerise, 'スリーズブーケ ライブステージ衣装', 'Cerise Bouquet 舞台衣装', 'unit_live', '莲之空女学院小分队 スリーズブーケ 专属洋装演出服');
+
+    const variantKahoCerise = 'variant-kaho-cerise-bouquet';
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      variantKahoCerise,
+      themeKahoCerise,
+      'kaho-hinoshita',
+      'スリーズブーケ ライブステージ衣装（日野下花帆Ver.）',
+      'Cerise Bouquet 花帆版',
+      'identified',
+      'verified',
+      '柔粉色披肩洋装、双层米色蕾丝百褶裙、白色丝缎领结与长手套。',
+      new Date().toISOString(),
+      new Date().toISOString()
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-kaho-cerise-real',
+      variantKahoCerise,
+      '/uploads/hasunosora_cerise_live.jpg',
+      'hasunosora_cerise_live.jpg',
+      1,
+      '声優グランプリ 官方特写（1000x667 超清）：スリーズブーケ（日野下花帆役 榆井希实等）埼玉巨蛋 Live 实穿粉白洋装演出服 (真人舞台对照)',
+      'real_life',
+      1
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'img-kaho-cerise-detail',
+      variantKahoCerise,
+      '/uploads/hasunosora_mira_live.jpg',
+      'hasunosora_mira_live.jpg',
+      0,
+      'スリーズブーケ 现场舞台大屏与三人近景特写 (677KB 超清舞台特写)',
+      'detail',
+      2
+    );
+
+    db.prepare(`
+      INSERT OR REPLACE INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'src-kaho-cerise-01',
+      variantKahoCerise,
+      'live_stage',
+      'none',
+      '声優グランプリ【ライブレポート】初の単独ドームで咲き誇る！ 蓮ノ空女学院 埼玉公演',
+      'https://seigura.com/news/174009/',
+      '莲之空女学院学园偶像俱乐部小分队 スリーズブーケ 舞台打歌服现场实录'
+    );
+
+    // 7) 安养寺姬芽《Dream Believers》
     const themeHime = 'theme-dream-believers';
     db.prepare(`
       INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)
@@ -568,7 +994,241 @@ function seedData() {
       '104期加入后实装的 104期 Ver. Dream Believers 觉醒后卡面立绘'
     );
 
-    // 待识别测试样例 (验证 AC-6)
+    // 8) 百生吟子《月夜見海月》（Cerise Bouquet 单曲打歌服，已完成 2D 原画母版与真人实穿考据认证）
+    const themeGinkoTsukiyomi = 'theme-tsukiyomi-kurage';
+    db.prepare(`
+      INSERT INTO costume_themes (id, name_ja, name_zh, category, description)
+      VALUES (?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        name_ja = excluded.name_ja,
+        name_zh = excluded.name_zh,
+        category = excluded.category,
+        description = excluded.description
+    `).run(themeGinkoTsukiyomi, '月夜見海月', '月夜水母', 'single_cd', '莲之空女学院学园偶像俱乐部 スリーズブーケ（Cerise Bouquet）单曲《月夜見海月》打歌服');
+
+    const variantGinkoTsukiyomi = 'var-cos-ginko-momose';
+    db.prepare(`
+      INSERT INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        theme_id = excluded.theme_id,
+        character_id = excluded.character_id,
+        name_ja = excluded.name_ja,
+        name_zh = excluded.name_zh,
+        name_status = excluded.name_status,
+        status = excluded.status,
+        notes = excluded.notes,
+        updated_at = excluded.updated_at
+    `).run(
+      variantGinkoTsukiyomi,
+      themeGinkoTsukiyomi,
+      'ginko-momose',
+      'ドレス《月夜見海月》（百生 吟子Ver.）',
+      '月夜见海月（百生吟子Ver.）',
+      'identified',
+      'verified',
+      '莲之空女学院学园偶像俱乐部 スリーズブーケ（Cerise Bouquet）单曲《月夜見海月》打歌服。特训后（觉醒后）舞台打歌服。左轨为リンクラ官方UR【月夜見海月】特训后母版原画；右轨为小红书同款 Cosplay 正面实拍对照。',
+      new Date().toISOString(),
+      new Date().toISOString()
+    );
+
+    db.prepare(`
+      INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        file_path = excluded.file_path,
+        original_filename = excluded.original_filename,
+        is_primary = excluded.is_primary,
+        caption = excluded.caption,
+        category = excluded.category,
+        sort_order = excluded.sort_order
+    `).run(
+      'img-cos-ginko-momose-ref',
+      variantGinkoTsukiyomi,
+      '/uploads/ginko_tsukiyomi_kurage_2d.jpg',
+      'ginko_tsukiyomi_kurage_2d.jpg',
+      1,
+      'リンクラ UR【月夜見海月】百生 吟子（特訓後）官方打歌服原画母版',
+      'illustration',
+      1
+    );
+
+    db.prepare(`
+      INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        file_path = excluded.file_path,
+        original_filename = excluded.original_filename,
+        is_primary = excluded.is_primary,
+        caption = excluded.caption,
+        category = excluded.category,
+        sort_order = excluded.sort_order
+    `).run(
+      'img-cos-ginko-momose',
+      variantGinkoTsukiyomi,
+      '/uploads/cos-ginko-momose-front.jpg',
+      'cos-ginko-momose-front.jpg',
+      1,
+      '小红书 Coser 正面实拍 @我没有拖延症！（备考版）· 《月夜見海月》同款',
+      'real_life',
+      0
+    );
+
+    db.prepare(`
+      INSERT INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        title = excluded.title,
+        url = excluded.url,
+        detail = excluded.detail
+    `).run(
+      'src-official-ginko-tsukiyomi',
+      variantGinkoTsukiyomi,
+      'game_card',
+      'awakened',
+      'Link! Like! Love Live! UR【月夜見海月】百生 吟子（特訓後）',
+      'https://gamerch.com/hasunosora/873011',
+      'リンクラ 104期9月 UR【月夜見海月】百生 吟子 特訓後 覚醒打歌服官方原画母版'
+    );
+
+    db.prepare(`
+      INSERT INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        title = excluded.title,
+        url = excluded.url,
+        detail = excluded.detail
+    `).run(
+      'src-cos-ginko-momose',
+      variantGinkoTsukiyomi,
+      'cosplay_photo',
+      'none',
+      '小红书 @我没有拖延症！（备考版）：囔囔…为什么这具身体总是清澈透明🪼💦',
+      'https://www.xiaohongshu.com/explore/6ad702c8000000002800a4ef?xsec_token=ABwG34Ys1RXmR7h4WIG8F4qjxwILP0msNSGSPo7mLmU1M=&xsec_source=pc_search',
+      '平台：小红书；创作者：@我没有拖延症！（备考版）；笔记标题：囔囔…为什么这具身体总是清澈透明🪼💦；正面全身 Cosplay 实拍，展现水母透明褶皱裙与和风大袖。'
+    );
+
+    // 9) 大泽瑠璃乃《Key of Like!》（みらくらぱーく！单曲打歌服，已完成 2D 原画母版与真人实穿考据认证）
+    const themeRurinoKeyOfLike = 'theme-rurino-key-of-like';
+    db.prepare(`
+      INSERT INTO costume_themes (id, name_ja, name_zh, category, description)
+      VALUES (?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        name_ja = excluded.name_ja,
+        name_zh = excluded.name_zh,
+        category = excluded.category,
+        description = excluded.description
+    `).run(
+      themeRurinoKeyOfLike,
+      'KEY of Like！',
+      'KEY of Like！',
+      'single',
+      '莲之空女学院学园偶像俱乐部 104期 4th Single《KEY of Like！》官方舞台服'
+    );
+
+    const variantRurinoKeyOfLike = 'var-cos-rurino-osawa';
+    db.prepare(`
+      INSERT INTO costume_variants (id, theme_id, character_id, name_ja, name_zh, name_status, status, notes, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        theme_id = excluded.theme_id,
+        character_id = excluded.character_id,
+        name_ja = excluded.name_ja,
+        name_zh = excluded.name_zh,
+        name_status = excluded.name_status,
+        status = excluded.status,
+        notes = excluded.notes,
+        updated_at = excluded.updated_at
+    `).run(
+      variantRurinoKeyOfLike,
+      themeRurinoKeyOfLike,
+      'rurino-osawa',
+      'ドレス《KEY of Like！》（大沢 瑠璃乃Ver.）',
+      'KEY of Like！打歌服（大泽瑠璃乃Ver.）',
+      'identified',
+      'verified',
+      '莲之空女学院学园偶像俱乐部 4th 单曲《KEY of Like！》（104期9人曲）官方舞台打歌服。标志性军乐礼帽配金色星饰、红白配色无袖马甲背心、胸前金色双排链饰与领结、黑色束腰配多层红色蓬褶裙与白色长手套。左轨为官方 2D 专辑打歌服原画母版；右轨为小红书同款 Cosplay 舞台实穿对照。',
+      new Date().toISOString(),
+      new Date().toISOString()
+    );
+
+    db.prepare(`
+      INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        file_path = excluded.file_path,
+        original_filename = excluded.original_filename,
+        is_primary = excluded.is_primary,
+        caption = excluded.caption,
+        category = excluded.category,
+        sort_order = excluded.sort_order
+    `).run(
+      'img-cos-rurino-osawa-ref',
+      variantRurinoKeyOfLike,
+      '/uploads/rurino_key_of_like_2d.jpg',
+      'rurino_key_of_like_2d.jpg',
+      1,
+      '官方 4th Single《KEY of Like！》大沢瑠璃乃打歌服原画母版',
+      'illustration',
+      1
+    );
+
+    db.prepare(`
+      INSERT INTO costume_images (id, variant_id, file_path, original_filename, is_primary, caption, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        file_path = excluded.file_path,
+        original_filename = excluded.original_filename,
+        is_primary = excluded.is_primary,
+        caption = excluded.caption,
+        category = excluded.category,
+        sort_order = excluded.sort_order
+    `).run(
+      'img-cos-rurino-osawa',
+      variantRurinoKeyOfLike,
+      '/uploads/cos-rurino-osawa-front.jpg',
+      'cos-rurino-osawa-front.jpg',
+      1,
+      '小红书 Coser 正面实拍 @孤独小猫酱 · 《KEY of Like！》打歌服舞台实穿',
+      'real_life',
+      0
+    );
+
+    db.prepare(`
+      INSERT INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        title = excluded.title,
+        url = excluded.url,
+        detail = excluded.detail
+    `).run(
+      'src-official-rurino-key-of-like',
+      variantRurinoKeyOfLike,
+      'official_single',
+      'awakened',
+      '莲之空女学院 4th Single《KEY of Like！》官方 2D 专辑打歌服母版',
+      'https://llwiki.org/zh/KEY_of_Like%EF%BC%81',
+      'リンクラ UR【Key of Like!】大沢 瑠璃乃 特訓後 覚醒打歌服官方原画母版'
+    );
+
+    db.prepare(`
+      INSERT INTO costume_sources (id, variant_id, source_type, evolution_stage, title, url, detail)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        title = excluded.title,
+        url = excluded.url,
+        detail = excluded.detail
+    `).run(
+      'src-cos-rurino-osawa',
+      variantRurinoKeyOfLike,
+      'cosplay_photo',
+      'none',
+      '小红书 @孤独小猫酱：今天录了key of like！',
+      'https://www.xiaohongshu.com/explore/6a2ec4960000000022016fea?xsec_token=ABtc2Wkd7RqQElLLQlxqPzgJpkJPsdW94VBhOmrcRPwU8=&xsec_source=pc_search',
+      '平台：小红书；创作者：@孤独小猫酱；笔记标题：今天录了key of like！；正面全身 Cosplay 实拍。'
+    );
+
+    // 10) 待识别测试样例 (验证 AC-6)
     const themeUnidentified = 'theme-temp-mystery';
     db.prepare(`
       INSERT OR IGNORE INTO costume_themes (id, name_ja, name_zh, category, description)

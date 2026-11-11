@@ -21,4 +21,14 @@ storage/
 backups/
 *.bak
 
+# 抓取与测试临时文件
+temp_*
+tmp_*
+*.tmp
+temp_xhs/
+temp_xhs2/
+tmp_rurino/
+xhs_results.json
+ginko_tsukiyomi_*.jpg
+
 

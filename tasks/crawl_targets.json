@@ -1,0 +1,2883 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-11T08:41:21.327Z",
+  "pipeline": "forward-master-pipeline",
+  "contract_rules": {
+    "left_track": "strictly 2D official awakened stage costume master (no school uniforms)",
+    "right_track": "strictly 3D real human coser/cast front-facing standing model",
+    "forbidden": [
+      "mannequins",
+      "back-facing",
+      "far-distance blurry stage",
+      "school uniform placeholders"
+    ]
+  },
+  "stats": {
+    "total_targets": 76,
+    "verified_completed": 25,
+    "pending_crawl": 51
+  },
+  "tasks": [
+    {
+      "task_id": "crawl-mifune-shioriko-shioriko-ketsui-no-hikari",
+      "character_id": "mifune-shioriko",
+      "character_name_ja": "三船 栞子",
+      "character_name_zh": "三船栞子",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-shioriko-ketsui-no-hikari",
+      "song_name_ja": "決意の光",
+      "song_name_zh": "决意之光",
+      "costume_name_ja": "決意の光（三船栞子Ver.）",
+      "costume_name_zh": "决意之光 演出服",
+      "variant_id": "variant-shioriko-ketsui-no-hikari",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "三船栞子 決意の光 cos 正面",
+        "三船栞子 決意の光 コスプレ",
+        "三船栞子 決意の光 模特 立拍"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mifune-shioriko_ketsui_no_hikari_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/shioriko_ketsui_cos_model.jpg",
+        "source_title": "小红书 @全熟小龙虾 漫展现场《決意の光》正面模特展拍",
+        "source_url": "https://www.xiaohongshu.com/explore/6954c8a4000000001e00aa16",
+        "completed_at": "2026-11-11T08:41:21.321Z"
+      }
+    },
+    {
+      "task_id": "crawl-mifune-shioriko-shioriko-aoi-canaria",
+      "character_id": "mifune-shioriko",
+      "character_name_ja": "三船 栞子",
+      "character_name_zh": "三船栞子",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-shioriko-aoi-canaria",
+      "song_name_ja": "翠いカナリア",
+      "song_name_zh": "翠鸟",
+      "costume_name_ja": "翠いカナリア（三船栞子Ver.）",
+      "costume_name_zh": "翠鸟 演出服",
+      "variant_id": "variant-shioriko-aoi-canaria",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "三船栞子 翠いカナリア cos",
+        "三船栞子 翠いカナリア コスプレ 正面",
+        "三船栞子 翠鸟 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mifune-shioriko_aoi_canaria_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-mifune-shioriko-shioriko-concerto-fantasy",
+      "character_id": "mifune-shioriko",
+      "character_name_ja": "三船 栞子",
+      "character_name_zh": "三船栞子",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-shioriko-concerto-fantasy",
+      "song_name_ja": "Concerto Fantasy",
+      "song_name_zh": "奇幻协奏曲",
+      "costume_name_ja": "Concerto Fantasy（三船栞子Ver.）",
+      "costume_name_zh": "奇幻协奏曲 演出服",
+      "variant_id": "variant-shioriko-concerto-fantasy",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "三船栞子 Concerto Fantasy cos",
+        "三船栞子 Concerto Fantasy コスプレ",
+        "三船栞子 协奏曲 cos 正面"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mifune-shioriko_concerto_fantasy_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-mifune-shioriko-shioriko-emotion",
+      "character_id": "mifune-shioriko",
+      "character_name_ja": "三船 栞子",
+      "character_name_zh": "三船栞子",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-shioriko-emotion",
+      "song_name_ja": "EMOTION",
+      "song_name_zh": "EMOTION",
+      "costume_name_ja": "EMOTION（三船栞子Ver.）",
+      "costume_name_zh": "EMOTION 动画演出服",
+      "variant_id": "variant-shioriko-emotion",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "三船栞子 EMOTION cos 正面",
+        "三船栞子 EMOTION コスプレ",
+        "三船栞子 小提琴 打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mifune-shioriko_emotion_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/mifune-shioriko_emotion_real_model.jpg",
+        "source_title": "已有实物参考图（EMOTION）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-mifune-shioriko-r3birth-monster-girls",
+      "character_id": "mifune-shioriko",
+      "character_name_ja": "三船 栞子",
+      "character_name_zh": "三船栞子",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-r3birth-monster-girls",
+      "song_name_ja": "MONSTER GIRLS",
+      "song_name_zh": "MONSTER GIRLS",
+      "costume_name_ja": "MONSTER GIRLS（R3BIRTH）",
+      "costume_name_zh": "MONSTER GIRLS 演出服",
+      "variant_id": "variant-shioriko-monster-girls",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "三船栞子 MONSTER GIRLS cos",
+        "R3BIRTH MONSTER GIRLS コスプレ 正面",
+        "三船栞子 皮衣 打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mifune-shioriko_r3birth_monster_girls_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-mia-taylor-r3birth-monster-girls",
+      "character_id": "mia-taylor",
+      "character_name_ja": "ミア・テイラー",
+      "character_name_zh": "米雅·泰勒",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-r3birth-monster-girls",
+      "song_name_ja": "MONSTER GIRLS",
+      "song_name_zh": "MONSTER GIRLS",
+      "costume_name_ja": "MONSTER GIRLS（R3BIRTH）",
+      "costume_name_zh": "MONSTER GIRLS 演出服",
+      "variant_id": "variant-mia-monster-girls",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "ミアテイラー MONSTER GIRLS cos",
+        "米雅泰勒 MONSTER GIRLS コスプレ 正面",
+        "Mia Taylor cos MONSTER GIRLS"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mia-taylor_r3birth_monster_girls_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-zhong-lanzhu-r3birth-monster-girls",
+      "character_id": "zhong-lanzhu",
+      "character_name_ja": "鐘 嵐珠",
+      "character_name_zh": "钟岚珠",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-r3birth-monster-girls",
+      "song_name_ja": "MONSTER GIRLS",
+      "song_name_zh": "MONSTER GIRLS",
+      "costume_name_ja": "MONSTER GIRLS（R3BIRTH）",
+      "costume_name_zh": "MONSTER GIRLS 演出服",
+      "variant_id": "variant-lanzhu-monster-girls",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "钟岚珠 MONSTER GIRLS cos 正面",
+        "鐘嵐珠 MONSTER GIRLS コスプレ",
+        "Zhong Lanzhu MONSTER GIRLS cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "zhong-lanzhu_r3birth_monster_girls_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-mifune-shioriko-nijigasaki-fly-with-you",
+      "character_id": "mifune-shioriko",
+      "character_name_ja": "三船 栞子",
+      "character_name_zh": "三船栞子",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-nijigasaki-fly-with-you",
+      "song_name_ja": "Fly with You!!",
+      "song_name_zh": "Fly with You!!",
+      "costume_name_ja": "Fly with You!!（虹ヶ咲全员Ver.）",
+      "costume_name_zh": "Fly with You!! 演出服",
+      "variant_id": "variant-shioriko-fly-with-you",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "三船栞子 Fly with You cos",
+        "虹ヶ咲 Fly with You コスプレ 正面",
+        "三船栞子 天使羽毛 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mifune-shioriko_nijigasaki_fly_with_you_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-uehara-ayumu-nijigasaki-fly-with-you",
+      "character_id": "uehara-ayumu",
+      "character_name_ja": "上原 歩夢",
+      "character_name_zh": "上原步梦",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-nijigasaki-fly-with-you",
+      "song_name_ja": "Fly with You!!",
+      "song_name_zh": "Fly with You!!",
+      "costume_name_ja": "Fly with You!!（虹ヶ咲全员Ver.）",
+      "costume_name_zh": "Fly with You!! 演出服",
+      "variant_id": "variant-ayumu-fly-with-you",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "上原歩夢 Fly with You cos 正面",
+        "上原步梦 Fly with You コスプレ",
+        "Ayumu Fly with You cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "uehara-ayumu_nijigasaki_fly_with_you_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-uehara-ayumu-ayumu-yume-e-no-ippo",
+      "character_id": "uehara-ayumu",
+      "character_name_ja": "上原 歩夢",
+      "character_name_zh": "上原步梦",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-ayumu-yume-e-no-ippo",
+      "song_name_ja": "夢への一歩",
+      "song_name_zh": "迈向梦想的一步",
+      "costume_name_ja": "夢への一歩（上原歩夢Ver.）",
+      "costume_name_zh": "迈向梦想的一步 演出服",
+      "variant_id": "variant-ayumu-yume-e-no-ippo",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "上原歩夢 夢への一歩 cos 正面",
+        "上原步梦 梦的一步 コスプレ",
+        "上原步梦 舞台打歌服 cos 正面全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "uehara-ayumu_yume_e_no_ippo_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/ayumu_yume_cos_model.jpg",
+        "source_title": "小红书 @噜噜噜噜 夢への一步 正面全身舞台立姿出片",
+        "source_url": "https://www.xiaohongshu.com/explore/6ab9b020000000000200e465",
+        "completed_at": "2026-11-11T08:41:21.323Z"
+      }
+    },
+    {
+      "task_id": "crawl-uehara-ayumu-ayumu-kaika-sengen",
+      "character_id": "uehara-ayumu",
+      "character_name_ja": "上原 歩夢",
+      "character_name_zh": "上原步梦",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-ayumu-kaika-sengen",
+      "song_name_ja": "開花宣言",
+      "song_name_zh": "开花宣言",
+      "costume_name_ja": "開花宣言（上原歩夢Ver.）",
+      "costume_name_zh": "开花宣言 演出服",
+      "variant_id": "variant-ayumu-kaika-sengen",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "上原歩夢 開花宣言 cos 正面",
+        "上原步梦 开花宣言 コスプレ",
+        "上原步梦 花瓣裙 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "uehara-ayumu_kaika_sengen_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-uehara-ayumu-ayumu-break-the-system",
+      "character_id": "uehara-ayumu",
+      "character_name_ja": "上原 歩夢",
+      "character_name_zh": "上原步梦",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-ayumu-break-the-system",
+      "song_name_ja": "Break The System",
+      "song_name_zh": "Break The System",
+      "costume_name_ja": "Break The System（上原歩夢Ver.）",
+      "costume_name_zh": "Break The System 剧场版/OVA演出服",
+      "variant_id": "variant-ayumu-break-the-system",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "上原歩夢 Break The System cos 正面",
+        "上原步梦 Break The System コスプレ",
+        "上原步梦 机能风 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "uehara-ayumu_break_the_system_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-uehara-ayumu-ayumu-awakening-promise",
+      "character_id": "uehara-ayumu",
+      "character_name_ja": "上原 歩夢",
+      "character_name_zh": "上原步梦",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-ayumu-awakening-promise",
+      "song_name_ja": "Awakening Promise",
+      "song_name_zh": "觉醒之誓",
+      "costume_name_ja": "Awakening Promise（上原歩夢Ver.）",
+      "costume_name_zh": "Awakening Promise 动画演出服",
+      "variant_id": "variant-ayumu-awakening-promise",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "上原歩夢 Awakening Promise cos 正面",
+        "上原步梦 花嫁 打歌服 cos",
+        "Ayumu Awakening Promise コスプレ"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "uehara-ayumu_awakening_promise_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-zhong-lanzhu-lanzhu-colorful-dreams",
+      "character_id": "zhong-lanzhu",
+      "character_name_ja": "鐘 嵐珠",
+      "character_name_zh": "钟岚珠",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-lanzhu-colorful-dreams",
+      "song_name_ja": "Colorful Dreams! Colorful Smiles!",
+      "song_name_zh": "多彩梦想！多彩笑容！",
+      "costume_name_ja": "Colorful Dreams! Colorful Smiles!（鐘 嵐珠Ver.）",
+      "costume_name_zh": "Colorful Dreams 钟岚珠版",
+      "variant_id": "variant-lanzhu-colorful-dreams",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "钟岚珠 Colorful Dreams cos 正面",
+        "鐘嵐珠 CDCS コスプレ 模特",
+        "钟岚珠 琴键打歌服 cos 全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "zhong-lanzhu_colorful_dreams_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/lanzhu_colorful_dreams_cos_model.jpg",
+        "source_title": "小红书 @歌剧悖论 舞台现场《Colorful Dreams!》钟岚珠正面展示",
+        "source_url": "https://www.xiaohongshu.com/explore/67a9f9c70000000018019a78",
+        "completed_at": "2026-11-11T08:41:21.323Z"
+      }
+    },
+    {
+      "task_id": "crawl-zhong-lanzhu-lanzhu-queendom",
+      "character_id": "zhong-lanzhu",
+      "character_name_ja": "鐘 嵐珠",
+      "character_name_zh": "钟岚珠",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-lanzhu-queendom",
+      "song_name_ja": "Queendom",
+      "song_name_zh": "Queendom",
+      "costume_name_ja": "Queendom（鐘 嵐珠Ver.）",
+      "costume_name_zh": "Queendom 演出服",
+      "variant_id": "variant-lanzhu-queendom",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "钟岚珠 Queendom cos 正面",
+        "鐘嵐珠 Queendom コスプレ",
+        "钟岚珠 旗袍打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "zhong-lanzhu_queendom_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/zhong-lanzhu_queendom_real_model.jpg",
+        "source_title": "已有实物参考图（Queendom）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-zhong-lanzhu-lanzhu-eutopia",
+      "character_id": "zhong-lanzhu",
+      "character_name_ja": "鐘 嵐珠",
+      "character_name_zh": "钟岚珠",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-lanzhu-eutopia",
+      "song_name_ja": "Eutopia",
+      "song_name_zh": "Eutopia",
+      "costume_name_ja": "Eutopia（鐘 嵐珠Ver.）",
+      "costume_name_zh": "Eutopia 动画演出服",
+      "variant_id": "variant-lanzhu-eutopia",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "钟岚珠 Eutopia cos 正面",
+        "鐘嵐珠 Eutopia コスプレ 模特",
+        "钟岚珠 白羽毛 翅膀 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "zhong-lanzhu_eutopia_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/zhong-lanzhu_eutopia_real_model.jpg",
+        "source_title": "已有实物参考图（Eutopia）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-yuki-setsuna-setsuna-chase",
+      "character_id": "yuki-setsuna",
+      "character_name_ja": "優木 せつ菜",
+      "character_name_zh": "优木雪菜",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-setsuna-chase",
+      "song_name_ja": "CHASE!",
+      "song_name_zh": "CHASE!",
+      "costume_name_ja": "CHASE!（優木 せつ菜Ver.）",
+      "costume_name_zh": "CHASE! 演出服",
+      "variant_id": "var-cos-yuki-setsuna",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "優木せつ菜 CHASE cos 正面",
+        "优木雪菜 CHASE! コスプレ 正面",
+        "雪菜 CHASE 打歌服 cos 全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "yuki-setsuna_chase_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/yuki-setsuna_chase_real_model.jpg",
+        "source_title": "已有实物参考图（CHASE!）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-yuki-setsuna-setsuna-dive",
+      "character_id": "yuki-setsuna",
+      "character_name_ja": "優木 せつ菜",
+      "character_name_zh": "优木雪菜",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-setsuna-dive",
+      "song_name_ja": "DIVE!",
+      "song_name_zh": "DIVE!",
+      "costume_name_ja": "DIVE!（優木 せつ菜Ver.）",
+      "costume_name_zh": "DIVE! 动画演出服",
+      "variant_id": "variant-setsuna-dive",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "優木せつ菜 DIVE cos 正面",
+        "优木雪菜 DIVE コスプレ",
+        "雪菜 DIVE 打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "yuki-setsuna_dive_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-tennoji-rina-rina-miracle-stay-tune",
+      "character_id": "tennoji-rina",
+      "character_name_ja": "天王寺 璃奈",
+      "character_name_zh": "天王寺璃奈",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-rina-miracle-stay-tune",
+      "song_name_ja": "Miracle STAY TUNE!",
+      "song_name_zh": "Miracle STAY TUNE!",
+      "costume_name_ja": "Miracle STAY TUNE!（天王寺 璃奈Ver.）",
+      "costume_name_zh": "Miracle STAY TUNE! 演出服",
+      "variant_id": "var-cos-tennoji-rina",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "天王寺璃奈 Miracle STAY TUNE cos",
+        "天王寺璃奈 コスプレ 正面 猫耳",
+        "天王寺璃奈 璃奈板 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "tennoji-rina_miracle_stay_tune_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/tennoji-rina_miracle_stay_tune_real_model.jpg",
+        "source_title": "已有实物参考图（Miracle STAY TUNE!）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-tennoji-rina-rina-tsunagaru-connect",
+      "character_id": "tennoji-rina",
+      "character_name_ja": "天王寺 璃奈",
+      "character_name_zh": "天王寺璃奈",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-rina-tsunagaru-connect",
+      "song_name_ja": "ツナガルコネクト",
+      "song_name_zh": "心连心Connect",
+      "costume_name_ja": "ツナガルコネクト（天王寺 璃奈Ver.）",
+      "costume_name_zh": "心连心Connect 动画演出服",
+      "variant_id": "variant-rina-tsunagaru-connect",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "天王寺璃奈 ツナガルコネクト cos 正面",
+        "天王寺璃奈 动画打歌服 コスプレ",
+        "璃奈板 正面全身 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "tennoji-rina_tsunagaru_connect_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-nakasu-kasumi-kasumi-mutekikyu-believer",
+      "character_id": "nakasu-kasumi",
+      "character_name_ja": "中須 かすみ",
+      "character_name_zh": "中须霞",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-kasumi-mutekikyu-believer",
+      "song_name_ja": "無敵級*ビリーバー",
+      "song_name_zh": "无敌级*Believer",
+      "costume_name_ja": "無敵級*ビリーバー（中須 かすみVer.）",
+      "costume_name_zh": "无敌级*Believer 演出服",
+      "variant_id": "variant-kasumi-mutekikyu-believer",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "中須かすみ 無敵級ビリーバー cos 正面",
+        "中须霞 无敌级believer コスプレ",
+        "中须霞 黄色打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "nakasu-kasumi_mutekikyu_believer_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-osaka-shizuku-shizuku-solitude-rain",
+      "character_id": "osaka-shizuku",
+      "character_name_ja": "桜坂 しずく",
+      "character_name_zh": "樱坂雫",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-shizuku-solitude-rain",
+      "song_name_ja": "Solitude Rain",
+      "song_name_zh": "孤独之雨",
+      "costume_name_ja": "Solitude Rain（桜坂 しずくVer.）",
+      "costume_name_zh": "Solitude Rain 动画演出服",
+      "variant_id": "variant-shizuku-solitude-rain",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "桜坂しずく Solitude Rain cos 正面",
+        "樱坂雫 孤独之雨 コスプレ",
+        "樱坂雫 蓝白打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "osaka-shizuku_solitude_rain_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/osaka-shizuku_solitude_rain_real_model.jpg",
+        "source_title": "Cosp.jp @natsuki Solitude Rain",
+        "source_url": "https://www.cosp.jp/view_photo.aspx?id=12901031&m=437845",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-asaka-karin-karin-vivid-world",
+      "character_id": "asaka-karin",
+      "character_name_ja": "朝香 果林",
+      "character_name_zh": "朝香果林",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-karin-vivid-world",
+      "song_name_ja": "VIVID WORLD",
+      "song_name_zh": "VIVID WORLD",
+      "costume_name_ja": "VIVID WORLD（朝香 果林Ver.）",
+      "costume_name_zh": "VIVID WORLD 动画演出服",
+      "variant_id": "variant-karin-vivid-world",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "朝香果林 VIVID WORLD cos 正面",
+        "朝香果林 紧身打歌服 コスプレ",
+        "Karin VIVID WORLD cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "asaka-karin_vivid_world_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-miyashita-ai-ai-saikou-heart",
+      "character_id": "miyashita-ai",
+      "character_name_ja": "宮下 愛",
+      "character_name_zh": "宫下爱",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-ai-saikou-heart",
+      "song_name_ja": "サイコーハート",
+      "song_name_zh": "至高之心",
+      "costume_name_ja": "サイコーハート（宮下 愛Ver.）",
+      "costume_name_zh": "至高之心 动画演出服",
+      "variant_id": "variant-ai-saikou-heart",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "宮下愛 サイコーハート cos 正面",
+        "宫下爱 动画打歌服 コスプレ",
+        "宫下爱 橙色运动服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "miyashita-ai_saikou_heart_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-omi-kanata-kanata-butterfly",
+      "character_id": "omi-kanata",
+      "character_name_ja": "近江 彼方",
+      "character_name_zh": "近江彼方",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-kanata-butterfly",
+      "song_name_ja": "Butterfly",
+      "song_name_zh": "Butterfly",
+      "costume_name_ja": "Butterfly（近江 彼方Ver.）",
+      "costume_name_zh": "Butterfly 动画演出服",
+      "variant_id": "variant-kanata-butterfly",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "近江彼方 Butterfly cos 正面",
+        "近江彼方 蝴蝶打歌服 コスプレ",
+        "近江彼方 紫色仙女裙 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "omi-kanata_butterfly_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-emma-verde-emma-la-bella-patria",
+      "character_id": "emma-verde",
+      "character_name_ja": "エマ・ヴェルデ",
+      "character_name_zh": "艾玛·维尔德",
+      "project_id": "nijigasaki",
+      "group": "虹咲学园学园偶像同好会",
+      "costume_id": "costume-emma-la-bella-patria",
+      "song_name_ja": "La Bella Patria",
+      "song_name_zh": "美丽故乡",
+      "costume_name_ja": "La Bella Patria（エマ・ヴェルデVer.）",
+      "costume_name_zh": "美丽故乡 动画演出服",
+      "variant_id": "variant-emma-la-bella-patria",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "エマ・ヴェルデ La Bella Patria cos 正面",
+        "艾玛维尔德 田园风 コスプレ",
+        "Emma Verde cos 正面全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "emma-verde_emma_la_bella_patria_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-ginko-momose-cerise-tsukiyomi-kurage",
+      "character_id": "ginko-momose",
+      "character_name_ja": "百生 吟子",
+      "character_name_zh": "百生吟子",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-cerise-tsukiyomi-kurage",
+      "song_name_ja": "月夜見海月",
+      "song_name_zh": "月夜水母",
+      "costume_name_ja": "ドレス《月夜見海月》（Cerise Bouquet）",
+      "costume_name_zh": "月夜见海月 演出服",
+      "variant_id": "var-cos-ginko-momose",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "百生吟子 月夜見海月 cos 正面",
+        "百生吟子 月夜见水母 コスプレ",
+        "百生吟子 水母服 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "ginko-momose_cerise_tsukiyomi_kurage_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/cos-ginko-momose-front.jpg",
+        "source_title": "小红书 @我没有拖延症！（备考版）：囔囔…为什么这具身体总是清澈透明🪼💦",
+        "source_url": "https://www.xiaohongshu.com/explore/6ad702c8000000002800a4ef?xsec_token=ABwG34Ys1RXmR7h4WIG8F4qjxwILP0msNSGSPo7mLmU1M=&xsec_source=pc_search",
+        "completed_at": "2026-11-11T08:41:21.324Z"
+      }
+    },
+    {
+      "task_id": "crawl-kaho-hinoshita-cerise-tsukiyomi-kurage",
+      "character_id": "kaho-hinoshita",
+      "character_name_ja": "日野下 花帆",
+      "character_name_zh": "日野下花帆",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-cerise-tsukiyomi-kurage",
+      "song_name_ja": "月夜見海月",
+      "song_name_zh": "月夜水母",
+      "costume_name_ja": "ドレス《月夜見海月》（Cerise Bouquet）",
+      "costume_name_zh": "月夜见海月 演出服",
+      "variant_id": "variant-kaho-tsukiyomi-kurage",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "日野下花帆 月夜見海月 cos 正面",
+        "日野下花帆 コスプレ 水母服",
+        "Kaho Hinoshita Tsukiyomi Kurage cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kaho-hinoshita_cerise_tsukiyomi_kurage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-kaho-hinoshita-cerise-holiday-holiday",
+      "character_id": "kaho-hinoshita",
+      "character_name_ja": "日野下 花帆",
+      "character_name_zh": "日野下花帆",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-cerise-holiday-holiday",
+      "song_name_ja": "Holiday∞Holiday",
+      "song_name_zh": "Holiday∞Holiday",
+      "costume_name_ja": "Holiday∞Holiday（スリーズブーケVer.）",
+      "costume_name_zh": "Holiday∞Holiday 演出服",
+      "variant_id": "variant-kaho-holiday-holiday",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "日野下花帆 Holiday Holiday cos 正面",
+        "日野下花帆 千鸟格 コスプレ",
+        "スリーズブーケ Holiday Holiday cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kaho-hinoshita_cerise_holiday_holiday_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/kaho-hinoshita_cerise_holiday_holiday_real_model.jpg",
+        "source_title": "已有实物参考图（Holiday∞Holiday）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-kozue-otomune-cerise-holiday-holiday",
+      "character_id": "kozue-otomune",
+      "character_name_ja": "乙宗 梢",
+      "character_name_zh": "乙宗梢",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-cerise-holiday-holiday",
+      "song_name_ja": "Holiday∞Holiday",
+      "song_name_zh": "Holiday∞Holiday",
+      "costume_name_ja": "Holiday∞Holiday（スリーズブーケVer.）",
+      "costume_name_zh": "Holiday∞Holiday 演出服",
+      "variant_id": "variant-kozue-holiday-holiday",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "乙宗梢 Holiday Holiday cos 正面",
+        "乙宗梢 コスプレ 绿千鸟格",
+        "Kozue Otomune Holiday Holiday cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kozue-otomune_cerise_holiday_holiday_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-kaho-hinoshita-cerise-suisai-sekai",
+      "character_id": "kaho-hinoshita",
+      "character_name_ja": "日野下 花帆",
+      "character_name_zh": "日野下花帆",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-cerise-suisai-sekai",
+      "song_name_ja": "水彩世界",
+      "song_name_zh": "水彩世界",
+      "costume_name_ja": "水彩世界（スリーズブーケVer.）",
+      "costume_name_zh": "水彩世界 演出服",
+      "variant_id": "variant-kaho-suisai-sekai",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "日野下花帆 水彩世界 cos 正面",
+        "スリーズブーケ 水彩世界 コスプレ",
+        "日野下花帆 水彩粉裙 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kaho-hinoshita_cerise_suisai_sekai_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-kozue-otomune-cerise-suisai-sekai",
+      "character_id": "kozue-otomune",
+      "character_name_ja": "乙宗 梢",
+      "character_name_zh": "乙宗梢",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-cerise-suisai-sekai",
+      "song_name_ja": "水彩世界",
+      "song_name_zh": "水彩世界",
+      "costume_name_ja": "水彩世界（スリーズブーケVer.）",
+      "costume_name_zh": "水彩世界 演出服",
+      "variant_id": "variant-kozue-suisai-sekai",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "乙宗梢 水彩世界 cos 正面",
+        "乙宗梢 水彩 コスプレ",
+        "Kozue Suisai Sekai cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kozue-otomune_cerise_suisai_sekai_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-rurino-osawa-mira-key-of-like",
+      "character_id": "rurino-osawa",
+      "character_name_ja": "大沢 瑠璃乃",
+      "character_name_zh": "大泽瑠璃乃",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-mira-key-of-like",
+      "song_name_ja": "Key of Like!",
+      "song_name_zh": "Key of Like!",
+      "costume_name_ja": "ドレス《Key of Like!》（みらくらぱーく！）",
+      "costume_name_zh": "Key of Like! 演出服",
+      "variant_id": "var-cos-rurino-osawa",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "大沢瑠璃乃 Key of Like cos 正面",
+        "大泽瑠璃乃 Key of Like コスプレ",
+        "大泽瑠璃乃 黄色卫衣打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "rurino-osawa_mira_key_of_like_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/rurino-osawa_mira_key_of_like_real_model.jpg",
+        "source_title": "已有实物参考图（Key of Like!）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-megumi-fujishima-mira-key-of-like",
+      "character_id": "megumi-fujishima",
+      "character_name_ja": "藤島 慈",
+      "character_name_zh": "藤岛慈",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-mira-key-of-like",
+      "song_name_ja": "Key of Like!",
+      "song_name_zh": "Key of Like!",
+      "costume_name_ja": "ドレス《Key of Like!》（みらくらぱーく！）",
+      "costume_name_zh": "Key of Like! 演出服",
+      "variant_id": "variant-megumi-key-of-like",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "藤島慈 Key of Like cos 正面",
+        "藤岛慈 Key of Like コスプレ",
+        "Megumi Fujishima cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "megumi-fujishima_mira_key_of_like_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-rurino-osawa-mira-do-do-do",
+      "character_id": "rurino-osawa",
+      "character_name_ja": "大沢 瑠璃乃",
+      "character_name_zh": "大泽瑠璃乃",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-mira-do-do-do",
+      "song_name_ja": "ド！ド！ド！",
+      "song_name_zh": "Do! Do! Do!",
+      "costume_name_ja": "ド！ド！ド！（みらくらぱーく！Ver.）",
+      "costume_name_zh": "Do! Do! Do! 演出服",
+      "variant_id": "variant-rurino-do-do-do",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "大沢瑠璃乃 ド！ド！ド！ cos 正面",
+        "大泽瑠璃乃 dododo コスプレ",
+        "瑠璃乃 运动短裙 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "rurino-osawa_mira_do_do_do_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-megumi-fujishima-mira-do-do-do",
+      "character_id": "megumi-fujishima",
+      "character_name_ja": "藤島 慈",
+      "character_name_zh": "藤岛慈",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-mira-do-do-do",
+      "song_name_ja": "ド！ド！ド！",
+      "song_name_zh": "Do! Do! Do!",
+      "costume_name_ja": "ド！ド！ド！（みらくらぱーく！Ver.）",
+      "costume_name_zh": "Do! Do! Do! 演出服",
+      "variant_id": "variant-megumi-do-do-do",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "藤島慈 ド！ド！ド！ cos 正面",
+        "藤岛慈 dododo コスプレ",
+        "藤岛慈 撞色短裙 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "megumi-fujishima_mira_do_do_do_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-tsuzuri-yugiri-doll-awoke",
+      "character_id": "tsuzuri-yugiri",
+      "character_name_ja": "夕霧 綴理",
+      "character_name_zh": "夕雾缀理",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-doll-awoke",
+      "song_name_ja": "AWOKE",
+      "song_name_zh": "AWOKE",
+      "costume_name_ja": "AWOKE（DOLLCHESTRA Ver.）",
+      "costume_name_zh": "AWOKE 演出服",
+      "variant_id": "variant-tsuzuri-awoke",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "夕霧綴理 AWOKE cos 正面",
+        "夕雾缀理 AWOKE コスプレ",
+        "夕雾缀理 战甲打歌服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "tsuzuri-yugiri_doll_awoke_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-sayaka-murano-doll-awoke",
+      "character_id": "sayaka-murano",
+      "character_name_ja": "村野 さやか",
+      "character_name_zh": "村野沙耶香",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-doll-awoke",
+      "song_name_ja": "AWOKE",
+      "song_name_zh": "AWOKE",
+      "costume_name_ja": "AWOKE（DOLLCHESTRA Ver.）",
+      "costume_name_zh": "AWOKE 演出服",
+      "variant_id": "variant-sayaka-awoke",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "村野さやか AWOKE cos 正面",
+        "村野沙耶香 AWOKE コスプレ",
+        "Sayaka Murano Awoke cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "sayaka-murano_doll_awoke_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-tsuzuri-yugiri-doll-kura-kura",
+      "character_id": "tsuzuri-yugiri",
+      "character_name_ja": "夕霧 綴理",
+      "character_name_zh": "夕雾缀理",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-doll-kura-kura",
+      "song_name_ja": "Kura:kura",
+      "song_name_zh": "Kura:kura",
+      "costume_name_ja": "Kura:kura（DOLLCHESTRA Ver.）",
+      "costume_name_zh": "Kura:kura 演出服",
+      "variant_id": "variant-tsuzuri-kura-kura",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "夕霧綴理 Kurakura cos 正面",
+        "夕雾缀理 哥特打歌服 コスプレ",
+        "Tsuzuri Kura:kura cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "tsuzuri-yugiri_doll_kura_kura_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-sayaka-murano-doll-kura-kura",
+      "character_id": "sayaka-murano",
+      "character_name_ja": "村野 さやか",
+      "character_name_zh": "村野沙耶香",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-doll-kura-kura",
+      "song_name_ja": "Kura:kura",
+      "song_name_zh": "Kura:kura",
+      "costume_name_ja": "Kura:kura（DOLLCHESTRA Ver.）",
+      "costume_name_zh": "Kura:kura 演出服",
+      "variant_id": "variant-sayaka-kura-kura",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "村野さやか Kurakura cos 正面",
+        "村野沙耶香 暗黑哥特 コスプレ",
+        "Sayaka Kurakura cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "sayaka-murano_doll_kura_kura_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-anyoji-hime-hasunosora-dream-believers",
+      "character_id": "anyoji-hime",
+      "character_name_ja": "安養寺 姫芽",
+      "character_name_zh": "安养寺姬芽",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-hasunosora-dream-believers",
+      "song_name_ja": "Dream Believers",
+      "song_name_zh": "Dream Believers",
+      "costume_name_ja": "Dream Believers（蓮ノ空全员Ver.）",
+      "costume_name_zh": "Dream Believers 出道演出服",
+      "variant_id": "variant-hime-dream-believers",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "安養寺姫芽 Dream Believers cos 正面",
+        "安养寺姬芽 觉醒打歌服 コスプレ",
+        "安养寺姬芽 紫色短裙 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "anyoji-hime_hasunosora_dream_believers_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-kosuzu-tachimachi-hasunosora-dream-believers",
+      "character_id": "kosuzu-tachimachi",
+      "character_name_ja": "徒町 小鈴",
+      "character_name_zh": "徒町小铃",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-hasunosora-dream-believers",
+      "song_name_ja": "Dream Believers",
+      "song_name_zh": "Dream Believers",
+      "costume_name_ja": "Dream Believers（蓮ノ空全员Ver.）",
+      "costume_name_zh": "Dream Believers 出道演出服",
+      "variant_id": "variant-kosuzu-dream-believers",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "徒町小鈴 Dream Believers cos 正面",
+        "徒町小铃 コスプレ 演出服",
+        "Kosuzu Tachimachi Dream Believers cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kosuzu-tachimachi_hasunosora_dream_believers_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-ginko-momose-hasunosora-dream-believers",
+      "character_id": "ginko-momose",
+      "character_name_ja": "百生 吟子",
+      "character_name_zh": "百生吟子",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-hasunosora-dream-believers",
+      "song_name_ja": "Dream Believers",
+      "song_name_zh": "Dream Believers",
+      "costume_name_ja": "Dream Believers（蓮ノ空全员Ver.）",
+      "costume_name_zh": "Dream Believers 出道演出服",
+      "variant_id": "variant-ginko-dream-believers",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "百生吟子 Dream Believers cos 正面",
+        "百生吟子 104期制服打歌服 コスプレ",
+        "Ginko Momose Dream Believers cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "ginko-momose_hasunosora_dream_believers_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-seras-yanagida-lilienfeld-edel-note-1st",
+      "character_id": "seras-yanagida-lilienfeld",
+      "character_name_ja": "セラス 柳田 リリエンフェルト",
+      "character_name_zh": "塞拉斯·柳田·莉莉恩费尔德",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-edel-note-1st",
+      "song_name_ja": "Edel Note ユニットステージ衣装",
+      "song_name_zh": "Edel Note 组合专属打歌服",
+      "costume_name_ja": "Edel Note ユニットステージ衣装",
+      "costume_name_zh": "Edel Note 组合打歌服",
+      "variant_id": "variant-seras-edel-note",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "セラス 柳田 リリエンフェルト cos 正面",
+        "塞拉斯 柳田 莉莉恩费尔德 コスプレ",
+        "Edel Note セラス cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "seras-yanagida-lilienfeld_edel_note_1st_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-izumi-katsuragi-edel-note-1st",
+      "character_id": "izumi-katsuragi",
+      "character_name_ja": "桂城 泉",
+      "character_name_zh": "桂城泉",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-edel-note-1st",
+      "song_name_ja": "Edel Note ユニットステージ衣装",
+      "song_name_zh": "Edel Note 组合专属打歌服",
+      "costume_name_ja": "Edel Note ユニットステージ衣装",
+      "costume_name_zh": "Edel Note 组合打歌服",
+      "variant_id": "variant-izumi-edel-note",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "桂城泉 cos 正面",
+        "桂城泉 コスプレ 打歌服",
+        "Izumi Katsuragi Edel Note cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "izumi-katsuragi_edel_note_1st_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-izumi-katsuragi-tasokare-rinko-1st",
+      "character_id": "izumi-katsuragi",
+      "character_name_ja": "桂城 泉",
+      "character_name_zh": "桂城泉",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-tasokare-rinko-1st",
+      "song_name_ja": "誰ソ彼ノ燐光 1st ステージ衣装",
+      "song_name_zh": "誰ソ彼ノ燐光 组合专属打歌服",
+      "costume_name_ja": "誰ソ彼ノ燐光 1st ステージ衣装",
+      "costume_name_zh": "誰ソ彼ノ燐光 演出服",
+      "variant_id": "variant-izumi-tasokare",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "桂城泉 誰ソ彼ノ燐光 cos 正面",
+        "誰ソ彼ノ燐光 コスプレ",
+        "桂城泉 暮光礼服 cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "izumi-katsuragi_tasokare_rinko_1st_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-maika-kinjo-hasunosora-106th-blooming",
+      "character_id": "maika-kinjo",
+      "character_name_ja": "錦上 マイカ",
+      "character_name_zh": "锦上舞香",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-hasunosora-106th-blooming",
+      "song_name_ja": "106期 蓮ノ空ステージ衣装",
+      "song_name_zh": "106期 莲之空全员舞台服",
+      "costume_name_ja": "106期 蓮ノ空ステージ衣装",
+      "costume_name_zh": "106期 莲之空全员打歌服",
+      "variant_id": "variant-maika-106th",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "錦上マイカ cos 正面",
+        "锦上舞香 コスプレ",
+        "Maika Kinjo cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "maika-kinjo_hasunosora_106th_blooming_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-aoi-reisawa-hasunosora-106th-blooming",
+      "character_id": "aoi-reisawa",
+      "character_name_ja": "令沢 葵",
+      "character_name_zh": "令泽葵",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-hasunosora-106th-blooming",
+      "song_name_ja": "106期 蓮ノ空ステージ衣装",
+      "song_name_zh": "106期 莲之空全员舞台服",
+      "costume_name_ja": "106期 蓮ノ空ステージ衣装",
+      "costume_name_zh": "106期 莲之空全员打歌服",
+      "variant_id": "variant-aoi-106th",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "令沢葵 cos 正面",
+        "令泽葵 コスプレ",
+        "Aoi Reisawa cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "aoi-reisawa_hasunosora_106th_blooming_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-mion-shinowa-hasunosora-106th-blooming",
+      "character_id": "mion-shinowa",
+      "character_name_ja": "紫輪 みおん",
+      "character_name_zh": "紫轮美音",
+      "project_id": "hasunosora",
+      "group": "莲之空女学院学园偶像俱乐部",
+      "costume_id": "costume-hasunosora-106th-blooming",
+      "song_name_ja": "106期 蓮ノ空ステージ衣装",
+      "song_name_zh": "106期 莲之空全员舞台服",
+      "costume_name_ja": "106期 蓮ノ空ステージ衣装",
+      "costume_name_zh": "106期 莲之空全员打歌服",
+      "variant_id": "variant-mion-106th",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "紫輪みおん cos 正面",
+        "紫轮美音 コスプレ",
+        "Mion Shinowa cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "mion-shinowa_hasunosora_106th_blooming_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-takami-chika-aozora-jumping-heart",
+      "character_id": "takami-chika",
+      "character_name_ja": "高海 千歌",
+      "character_name_zh": "高海千歌",
+      "project_id": "sunshine",
+      "group": "Aqours",
+      "costume_id": "costume-aozora-jumping-heart",
+      "song_name_ja": "青空Jumping Heart",
+      "song_name_zh": "青空Jumping Heart",
+      "costume_name_ja": "青空Jumping Heart（Aqours全员Ver.）",
+      "costume_name_zh": "青空Jumping Heart 演出服",
+      "variant_id": "variant-chika-aozora-jumping-heart",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "高海千歌 青空Jumping Heart cos 正面",
+        "高海千歌 青空Jumping Heart 模特 立拍",
+        "Aqours 青空Jumping Heart 打歌服 正面全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "takami-chika_aozora_jumping_heart_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/chika_aozora_cos_model.jpg",
+        "source_title": "小红书 @_1743_ 青空Jumping Heart 正面直拍展示",
+        "source_url": "https://www.xiaohongshu.com/explore/6a7ef7c5000000000503130c",
+        "completed_at": "2026-11-11T08:41:21.325Z"
+      }
+    },
+    {
+      "task_id": "crawl-watanabe-you-aozora-jumping-heart",
+      "character_id": "watanabe-you",
+      "character_name_ja": "渡辺 曜",
+      "character_name_zh": "渡边曜",
+      "project_id": "sunshine",
+      "group": "Aqours",
+      "costume_id": "costume-aozora-jumping-heart",
+      "song_name_ja": "青空Jumping Heart",
+      "song_name_zh": "青空Jumping Heart",
+      "costume_name_ja": "青空Jumping Heart（Aqours全员Ver.）",
+      "costume_name_zh": "青空Jumping Heart 演出服",
+      "variant_id": "variant-you-aozora-jumping-heart",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "渡辺曜 青空Jumping Heart cos 正面",
+        "渡边曜 青空打歌服 コスプレ",
+        "You Watanabe Aozora cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "watanabe-you_aozora_jumping_heart_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/watanabe-you_aozora_jumping_heart_real_model.jpg",
+        "source_title": "已有实物参考图（青空Jumping Heart）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-sakurauchi-riko-aozora-jumping-heart",
+      "character_id": "sakurauchi-riko",
+      "character_name_ja": "桜内 梨子",
+      "character_name_zh": "樱内梨子",
+      "project_id": "sunshine",
+      "group": "Aqours",
+      "costume_id": "costume-aozora-jumping-heart",
+      "song_name_ja": "青空Jumping Heart",
+      "song_name_zh": "青空Jumping Heart",
+      "costume_name_ja": "青空Jumping Heart（Aqours全员Ver.）",
+      "costume_name_zh": "青空Jumping Heart 演出服",
+      "variant_id": "variant-riko-aozora-jumping-heart",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "桜内梨子 青空Jumping Heart cos 正面",
+        "樱内梨子 青空打歌服 コスプレ",
+        "Riko Sakurauchi Aozora cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "sakurauchi-riko_aozora_jumping_heart_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/sakurauchi-riko_aozora_jumping_heart_real_model.jpg",
+        "source_title": "已有实物参考图（青空Jumping Heart）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-kunikida-hanamaru-aqours-omoi-yo-hitotsu-ni-nare",
+      "character_id": "kunikida-hanamaru",
+      "character_name_ja": "国木田 花丸",
+      "character_name_zh": "国木田花丸",
+      "project_id": "sunshine",
+      "group": "Aqours",
+      "costume_id": "costume-aqours-omoi-yo-hitotsu-ni-nare",
+      "song_name_ja": "想いよひとつになれ",
+      "song_name_zh": "心意合而为一",
+      "costume_name_ja": "想いよひとつになれ（AqoursVer.）",
+      "costume_name_zh": "心意合而为一 演出服",
+      "variant_id": "var-cos-kunikida-hanamaru",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "国木田花丸 想いよひとつになれ cos 正面",
+        "国木田花丸 心意合而为一 コスプレ",
+        "国木田花丸 亮黄燕尾裙 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kunikida-hanamaru_aqours_omoi_yo_hitotsu_ni_nare_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/kunikida-hanamaru_aqours_omoi_yo_hitotsu_ni_nare_real_model.jpg",
+        "source_title": "已有实物参考图（想いよひとつになれ）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-kurosawa-ruby-aqours-omoi-yo-hitotsu-ni-nare",
+      "character_id": "kurosawa-ruby",
+      "character_name_ja": "黒澤 ルビィ",
+      "character_name_zh": "黑泽露比",
+      "project_id": "sunshine",
+      "group": "Aqours",
+      "costume_id": "costume-aqours-omoi-yo-hitotsu-ni-nare",
+      "song_name_ja": "想いよひとつになれ",
+      "song_name_zh": "心意合而为一",
+      "costume_name_ja": "想いよひとつになれ（AqoursVer.）",
+      "costume_name_zh": "心意合而为一 演出服",
+      "variant_id": "variant-ruby-omoi-yo",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "黒澤ルビィ 想いよひとつになれ cos 正面",
+        "黑泽露比 心意合一 コスプレ",
+        "Ruby Kurosawa Omoi yo cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kurosawa-ruby_aqours_omoi_yo_hitotsu_ni_nare_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-watanabe-you-aqours-koi-ni-naritai-aquarium",
+      "character_id": "watanabe-you",
+      "character_name_ja": "渡辺 曜",
+      "character_name_zh": "渡边曜",
+      "project_id": "sunshine",
+      "group": "Aqours",
+      "costume_id": "costume-aqours-koi-ni-naritai-aquarium",
+      "song_name_ja": "恋になりたいAQUARIUM",
+      "song_name_zh": "想在水族馆恋爱",
+      "costume_name_ja": "恋になりたいAQUARIUM（Aqours全员Ver.）",
+      "costume_name_zh": "水族馆 演出服",
+      "variant_id": "variant-you-aquarium",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "渡辺曜 水族館 cos 正面",
+        "渡边曜 恋になりたいAQUARIUM コスプレ",
+        "You Watanabe Aquarium cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "watanabe-you_aqours_koi_ni_naritai_aquarium_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/watanabe-you_aqours_koi_ni_naritai_aquarium_real_model.jpg",
+        "source_title": "已有实物参考图（恋になりたいAQUARIUM）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-kousaka-honoka-honoka-borarara",
+      "character_id": "kousaka-honoka",
+      "character_name_ja": "高坂 穂乃果",
+      "character_name_zh": "高坂穗乃果",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-honoka-borarara",
+      "song_name_ja": "僕らのLIVE 君とのLIFE",
+      "song_name_zh": "我们的LIVE 与你的LIFE",
+      "costume_name_ja": "僕らのLIVE 君とのLIFE（高坂穂乃果Ver.）",
+      "costume_name_zh": "我们的LIVE 与你的LIFE 穗乃果版",
+      "variant_id": "variant-honoka-borarara",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "高坂穂乃果 僕らのLIVE 君とのLIFE cos 正面",
+        "高坂穗乃果 我们的live コスプレ 全身",
+        "穗乃果 1st打歌服 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kousaka-honoka_borarara_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/honoka_borarara_cos_model.jpg",
+        "source_title": "小红书 @弧泥弧图 我们的live与你的life 正面全身模特立展",
+        "source_url": "https://www.xiaohongshu.com/explore/6ae6f4e3000000000e034664",
+        "completed_at": "2026-11-11T08:41:21.326Z"
+      }
+    },
+    {
+      "task_id": "crawl-sonoda-umi-honoka-borarara",
+      "character_id": "sonoda-umi",
+      "character_name_ja": "園田 海未",
+      "character_name_zh": "园田海未",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-honoka-borarara",
+      "song_name_ja": "僕らのLIVE 君とのLIFE",
+      "song_name_zh": "我们的LIVE 与你的LIFE",
+      "costume_name_ja": "僕らのLIVE 君とのLIFE（高坂穂乃果Ver.）",
+      "costume_name_zh": "我们的LIVE 与你的LIFE 穗乃果版",
+      "variant_id": "variant-umi-borarara",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "園田海未 僕らのLIVE 君とのLIFE cos 正面",
+        "园田海未 我们的live コスプレ",
+        "Umi Borarara cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "sonoda-umi_honoka_borarara_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-minami-kotori-honoka-borarara",
+      "character_id": "minami-kotori",
+      "character_name_ja": "南 ことり",
+      "character_name_zh": "南小鸟",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-honoka-borarara",
+      "song_name_ja": "僕らのLIVE 君とのLIFE",
+      "song_name_zh": "我们的LIVE 与你的LIFE",
+      "costume_name_ja": "僕らのLIVE 君とのLIFE（高坂穂乃果Ver.）",
+      "costume_name_zh": "我们的LIVE 与你的LIFE 穗乃果版",
+      "variant_id": "variant-kotori-borarara",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "南ことり 僕らのLIVE 君とのLIFE cos 正面",
+        "南小鸟 我们的live コスプレ",
+        "Kotori Borarara cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "minami-kotori_honoka_borarara_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-tojo-nozomi-tojo-kirakira-sensation",
+      "character_id": "tojo-nozomi",
+      "character_name_ja": "東條 希",
+      "character_name_zh": "东条希",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-tojo-kirakira-sensation",
+      "song_name_ja": "KiRa-KiRa Sensation!",
+      "song_name_zh": "闪亮心情",
+      "costume_name_ja": "KiRa-KiRa Sensation!（東條 希Ver.）",
+      "costume_name_zh": "KiRa-KiRa Sensation! 东条希版",
+      "variant_id": "var-cos-tojo-nozomi",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "東條希 KiRa-KiRa Sensation cos 正面",
+        "东条希 闪亮心情 コスプレ 正面",
+        "东条希 夺冠打歌服 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "tojo-nozomi_tojo_kirakira_sensation_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/tojo-nozomi_tojo_kirakira_sensation_real_model.jpg",
+        "source_title": "已有实物参考图（KiRa-KiRa Sensation!）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-kousaka-honoka-tojo-kirakira-sensation",
+      "character_id": "kousaka-honoka",
+      "character_name_ja": "高坂 穂乃果",
+      "character_name_zh": "高坂穗乃果",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-tojo-kirakira-sensation",
+      "song_name_ja": "KiRa-KiRa Sensation!",
+      "song_name_zh": "闪亮心情",
+      "costume_name_ja": "KiRa-KiRa Sensation!（東條 希Ver.）",
+      "costume_name_zh": "KiRa-KiRa Sensation! 东条希版",
+      "variant_id": "variant-honoka-kirakira",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "高坂穂乃果 KiRa-KiRa Sensation cos 正面",
+        "高坂穗乃果 夺冠打歌服 コスプレ",
+        "Honoka KiRa-KiRa Sensation cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kousaka-honoka_tojo_kirakira_sensation_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/kousaka-honoka_tojo_kirakira_sensation_real_model.jpg",
+        "source_title": "已有实物参考图（KiRa-KiRa Sensation!）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-sonoda-umi-sonoda-angel",
+      "character_id": "sonoda-umi",
+      "character_name_ja": "園田 海未",
+      "character_name_zh": "园田海未",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-sonoda-angel",
+      "song_name_ja": "ホワイトデー編 天使の弓矢",
+      "song_name_zh": "天使篇 / 白色情人节爱神",
+      "costume_name_ja": "ホワイトデー編 天使の弓矢（園田 海未Ver.）",
+      "costume_name_zh": "天使篇爱神（园田海未Ver.）",
+      "variant_id": "var-cos-sonoda-umi",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "園田海未 天使編 cos 正面",
+        "园田海未 白色情人节天使 コスプレ",
+        "海未 天使弓矢 cos 全身 翅膀"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "sonoda-umi_sonoda_angel_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/sonoda-umi_sonoda_angel_real_model.jpg",
+        "source_title": "已有实物参考图（ホワイトデー編 天使の弓矢）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-kousaka-honoka-muse-snow-halation",
+      "character_id": "kousaka-honoka",
+      "character_name_ja": "高坂 穂乃果",
+      "character_name_zh": "高坂穗乃果",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-muse-snow-halation",
+      "song_name_ja": "Snow halation",
+      "song_name_zh": "雪之光芒",
+      "costume_name_ja": "Snow halation（μ's全员Ver.）",
+      "costume_name_zh": "Snow halation 冬日雪景演出服",
+      "variant_id": "variant-honoka-snow-halation",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "高坂穂乃果 Snow halation cos 正面",
+        "高坂穗乃果 白毛领大衣 コスプレ",
+        "Honoka Snow Halation cos 全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kousaka-honoka_muse_snow_halation_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/kousaka-honoka_muse_snow_halation_real_model.jpg",
+        "source_title": "已有实物参考图（Snow halation）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-minami-kotori-muse-snow-halation",
+      "character_id": "minami-kotori",
+      "character_name_ja": "南 ことり",
+      "character_name_zh": "南小鸟",
+      "project_id": "muse",
+      "group": "μ's",
+      "costume_id": "costume-muse-snow-halation",
+      "song_name_ja": "Snow halation",
+      "song_name_zh": "雪之光芒",
+      "costume_name_ja": "Snow halation（μ's全员Ver.）",
+      "costume_name_zh": "Snow halation 冬日雪景演出服",
+      "variant_id": "variant-kotori-snow-halation",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "南ことり Snow halation cos 正面",
+        "南小鸟 雪之光芒 コスプレ",
+        "Kotori Snow Halation cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "minami-kotori_muse_snow_halation_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/minami-kotori_muse_snow_halation_real_model.jpg",
+        "source_title": "Cosp.jp @EW561系(エア快特 Snow halation",
+        "source_url": "https://www.cosp.jp/view_photo.aspx?id=12924877&m=490034",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-shibuya-kanon-liella-hajimari-wa-kimi-no-sora",
+      "character_id": "shibuya-kanon",
+      "character_name_ja": "澁谷 かのん",
+      "character_name_zh": "涩谷香音",
+      "project_id": "superstar",
+      "group": "Liella!",
+      "costume_id": "costume-liella-hajimari-wa-kimi-no-sora",
+      "song_name_ja": "始まりは君の空",
+      "song_name_zh": "始于你的天空",
+      "costume_name_ja": "始まりは君の空（Liella!全员Ver.）",
+      "costume_name_zh": "始于你的天空 出道演出服",
+      "variant_id": "variant-kanon-hajimari",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "澁谷かのん 始まりは君の空 cos 正面",
+        "涩谷香音 始于你的天空 コスプレ",
+        "Kanon Shibuya cos 模特 正面全身"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "shibuya-kanon_liella_hajimari_wa_kimi_no_sora_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-tang-keke-liella-hajimari-wa-kimi-no-sora",
+      "character_id": "tang-keke",
+      "character_name_ja": "唐 可可",
+      "character_name_zh": "唐可可",
+      "project_id": "superstar",
+      "group": "Liella!",
+      "costume_id": "costume-liella-hajimari-wa-kimi-no-sora",
+      "song_name_ja": "始まりは君の空",
+      "song_name_zh": "始于你的天空",
+      "costume_name_ja": "始まりは君の空（Liella!全员Ver.）",
+      "costume_name_zh": "始于你的天空 出道演出服",
+      "variant_id": "variant-keke-hajimari",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "唐可可 始まりは君の空 cos 正面",
+        "唐可可 水手打歌服 コスプレ",
+        "Tang Keke Hajimari cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "tang-keke_liella_hajimari_wa_kimi_no_sora_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/tang-keke_liella_hajimari_wa_kimi_no_sora_real_model.jpg",
+        "source_title": "已有实物参考图（始まりは君の空）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-heanna-sumire-liella-nonfiction",
+      "character_id": "heanna-sumire",
+      "character_name_ja": "平安名 すみれ",
+      "character_name_zh": "平安名堇",
+      "project_id": "superstar",
+      "group": "Liella!",
+      "costume_id": "costume-liella-nonfiction",
+      "song_name_ja": "ノンフィクション!!",
+      "song_name_zh": "Nonfiction!!",
+      "costume_name_ja": "ノンフィクション!!（平安名 すみれVer.）",
+      "costume_name_zh": "Nonfiction!! 平安名堇C位演出服",
+      "variant_id": "variant-sumire-nonfiction",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "平安名すみれ ノンフィクション cos 正面",
+        "平安名堇 Nonfiction コスプレ",
+        "平安名堇 孔雀绿打歌服 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "heanna-sumire_liella_nonfiction_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-azabu-mai-bluebird-mai-mymai",
+      "character_id": "azabu-mai",
+      "character_name_ja": "麻布 麻衣",
+      "character_name_zh": "麻布麻衣",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-mai-mymai",
+      "song_name_ja": "mymai",
+      "song_name_zh": "mymai",
+      "costume_name_ja": "mymai（麻布 麻衣Ver.）",
+      "costume_name_zh": "mymai 麻布麻衣对抗服",
+      "variant_id": "var-cos-azabu-mai",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "麻布麻衣 mymai cos 正面",
+        "麻布麻衣 对抗服 コスプレ",
+        "麻布麻衣 机能风西装 cos 模特"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "azabu-mai_bluebird_mai_mymai_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-komagata-hanabi-bluebird-hanabi-dou-da",
+      "character_id": "komagata-hanabi",
+      "character_name_ja": "駒形 花火",
+      "character_name_zh": "驹形花火",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-hanabi-dou-da",
+      "song_name_ja": "DOU DA DOING",
+      "song_name_zh": "DOU DA DOING",
+      "costume_name_ja": "DOU DA DOING（駒形 花火Ver.）",
+      "costume_name_zh": "DOU DA DOING 演出服",
+      "variant_id": "var-cos-komagata-hanabi",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "駒形花火 DOU DA DOING cos 正面",
+        "驹形花火 拳套 コスプレ",
+        "Komagata Hanabi DOU DA DOING cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "komagata-hanabi_bluebird_hanabi_dou_da_real_model.jpg",
+      "status": "completed",
+      "assigned_agent": "opencode",
+      "result": {
+        "file_path": "/uploads/komagata-hanabi_bluebird_hanabi_dou_da_real_model.jpg",
+        "source_title": "已有实物参考图（DOU DA DOING）",
+        "source_url": "",
+        "completed_at": "2026-11-11T09:29:53.367231Z"
+      }
+    },
+    {
+      "task_id": "crawl-takahashi-polka-bluebird-1st-stage",
+      "character_id": "takahashi-polka",
+      "character_name_ja": "高橋 ポルカ",
+      "character_name_zh": "高桥波尔卡",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-takahashi-polka",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "高橋ポルカ cos 正面",
+        "高桥波尔卡 コスプレ",
+        "Takahashi Polka BLUEBIRD cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "takahashi-polka_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-goto-akira-bluebird-1st-stage",
+      "character_id": "goto-akira",
+      "character_name_ja": "五桐 玲",
+      "character_name_zh": "五桐玲",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-goto-akira",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "五桐玲 cos 正面",
+        "五桐玲 コスプレ 打歌服",
+        "Goto Akira BLUEBIRD cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "goto-akira_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-kanazawa-kiseki-bluebird-1st-stage",
+      "character_id": "kanazawa-kiseki",
+      "character_name_ja": "金澤 奇跡",
+      "character_name_zh": "金泽奇迹",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-kanazawa-kiseki",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "金澤奇跡 cos 正面",
+        "金泽奇迹 コスプレ",
+        "Kanazawa Kiseki cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "kanazawa-kiseki_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-chofu-noriko-bluebird-1st-stage",
+      "character_id": "chofu-noriko",
+      "character_name_ja": "調布 のりこ",
+      "character_name_zh": "调布法子",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-chofu-noriko",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "調布のりこ cos 正面",
+        "调布法子 コスプレ",
+        "Chofu Noriko cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "chofu-noriko_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-harumiya-yukuri-bluebird-1st-stage",
+      "character_id": "harumiya-yukuri",
+      "character_name_ja": "春宮 ゆくり",
+      "character_name_zh": "春宫由栗",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-harumiya-yukuri",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "春宮ゆくり cos 正面",
+        "春宫由栗 コスプレ",
+        "Harumiya Yukuri cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "harumiya-yukuri_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-konohana-kaguya-bluebird-1st-stage",
+      "character_id": "konohana-kaguya",
+      "character_name_ja": "此花 輝夜",
+      "character_name_zh": "此花辉夜",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-konohana-kaguya",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "此花輝夜 cos 正面",
+        "此花辉夜 コスプレ",
+        "Konohana Kaguya cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "konohana-kaguya_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-yamada-midori-bluebird-1st-stage",
+      "character_id": "yamada-midori",
+      "character_name_ja": "山田 真緑",
+      "character_name_zh": "山田真绿",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-yamada-midori",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "山田真緑 cos 正面",
+        "山田真绿 コスプレ",
+        "Yamada Midori cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "yamada-midori_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    },
+    {
+      "task_id": "crawl-sasaki-shion-bluebird-1st-stage",
+      "character_id": "sasaki-shion",
+      "character_name_ja": "佐々木 翔音",
+      "character_name_zh": "佐佐木翔音",
+      "project_id": "ikizuraibu",
+      "group": "いきづらい部",
+      "costume_id": "costume-bluebird-1st-stage",
+      "song_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "song_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "costume_name_ja": "BLUEBIRD 1st ステージ衣装",
+      "costume_name_zh": "BLUEBIRD 1st 团体打歌服",
+      "variant_id": "var-cos-sasaki-shion",
+      "target_type": "real_life_model",
+      "search_keywords": [
+        "佐々木翔音 cos 正面",
+        "佐佐木翔音 コスプレ",
+        "Sasaki Shion cos"
+      ],
+      "visual_requirements": {
+        "perspective": "front_facing_0_to_15_degrees",
+        "framing": "full_body_or_knee_up_standing",
+        "subject": "real_human_coser_or_cast",
+        "reject": [
+          "mannequin",
+          "back_facing",
+          "extreme_long_shot",
+          "blurry",
+          "school_uniform_placeholder"
+        ]
+      },
+      "dest_filename": "sasaki-shion_bluebird_1st_stage_real_model.jpg",
+      "status": "pending",
+      "assigned_agent": "opencode",
+      "result": null
+    }
+  ]
+}

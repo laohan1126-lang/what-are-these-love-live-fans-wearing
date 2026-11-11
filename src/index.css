@@ -1,69 +1,285 @@
 @import "tailwindcss";
 
 :root {
-  --canvas: #090e1a;
-  --panel: #0e1629;
-  --stage: #050811;
-  --soft: rgba(255, 255, 255, 0.035);
-  --soft-hover: rgba(255, 255, 255, 0.07);
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(45, 212, 191, 0.28);
-  --ink: #f3f6fc;
-  --muted: #8b9bb4;
-  --faint: #56657d;
-  --accent: #2dd4bf;
-  --accent-fill: #14b8a6;
-  --accent-hover: #0d9488;
-  --accent-soft: rgba(45, 212, 191, 0.1);
-  --on-accent: #041210;
-  --gold: #f59e0b;
-  --serif: "Noto Serif JP", "Songti SC", "STSong", Georgia, serif;
-  --sans: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
+  /* 夜幕和风舞台画布 */
+  --canvas-void: #050811;
+  --canvas-ink: #070c18;
+  --canvas-wash: #0b1326;
+
+  /* 文本层次 (WCAG AA 高对比度) */
+  --ink-primary: #f4f7fb;
+  --ink-secondary: #d4deec;
+  --ink-muted: #8fa2bc;
+  --ink-faint: #5c708a;
+
+  /* 三船栞子 · 決意の光 核心色板 */
+  --char-accent: #2dd4bf;
+  --jade: #2dd4bf;
+  --jade-deep: #0d9488;
+  --kinpaku: #e5b869;
+  --kinpaku-soft: rgba(229, 184, 105, 0.16);
+  --stage-cyan: #38bdf8;
+  --shuin-rose: #f43f5e;
+
+  /* 开放式金丝/翠玉细线（替代封闭卡片边框） */
+  --hairline-gold: rgba(229, 184, 105, 0.24);
+  --hairline-jade: rgba(45, 212, 191, 0.32);
+  --hairline-subtle: rgba(148, 163, 184, 0.15);
+
+  /* 字体排印系统 */
+  --font-serif: "Noto Serif JP", "Noto Serif SC", "Yu Mincho", "Songti SC", "STSong", Georgia, serif;
+  --font-brush: "Yu Mincho", "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif JP", serif;
+  --font-sans: "Noto Sans JP", "PingFang SC", "Hiragino Sans", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--canvas-ink);
+  color: var(--ink-primary);
 }
 
 body {
   margin: 0;
-  background-color: var(--canvas);
-  color: var(--ink);
-  font-family: var(--sans);
+  min-width: 320px;
+  background-color: var(--canvas-ink);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-/* 典雅的衬线排版与标题 */
+/* 焦点无障碍轮廓 */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 3px;
+}
+
+/* 典雅衬线展示字与手写斜标 */
 .serif-title {
-  font-family: var(--serif);
-  letter-spacing: 0.02em;
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+.brush-quote {
+  font-family: var(--font-brush);
+  font-style: italic;
+  letter-spacing: 0.08em;
 }
 
 .eyebrow {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 10px;
-  line-height: 1.6;
+  line-height: 1.5;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--kinpaku);
 }
 
 .title-jp {
-  font-family: var(--serif);
+  font-family: var(--font-serif);
   font-style: italic;
-  transform: rotate(-5deg);
+  transform: rotate(-4deg);
   letter-spacing: 0.06em;
 }
 
-/* 舞台光感动效 */
+/* 顶栏排印下划线微动效（无封闭盒子） */
+.skyline-tab {
+  position: relative;
+  background: transparent;
+  border: 0;
+  padding: 6px 2px;
+  color: var(--ink-muted);
+  transition: color 0.24s cubic-bezier(0.22, 1, 0.36, 1), transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skyline-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--jade), var(--kinpaku));
+  transition: right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skyline-tab:hover,
+.skyline-tab.is-active {
+  color: var(--ink-primary);
+}
+
+.skyline-tab:hover::after,
+.skyline-tab.is-active::after {
+  right: 0;
+}
+
+/* 1. 进场编排动效 (Entrance Choreography) */
+@keyframes stage-develop {
+  from {
+    opacity: 0.35;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes script-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) rotate(-6deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-1.5deg);
+  }
+}
+
+@keyframes folio-stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-stage-develop {
+  animation: stage-develop 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-script-reveal {
+  animation: script-reveal 0.9s cubic-bezier(0.2, 1, 0.25, 1) both;
+}
+
+.animate-folio-1 {
+  animation: folio-stagger-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+.animate-folio-2 {
+  animation: folio-stagger-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+}
+
+.animate-folio-3 {
+  animation: folio-stagger-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+/* 5. 环境微动 (Ambient Micro-motion) */
 @keyframes stage-breathe {
-  0% { opacity: 0.25; }
-  50% { opacity: 0.55; }
-  100% { opacity: 0.25; }
+  0% {
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.62;
+  }
+  100% {
+    opacity: 0.32;
+  }
+}
+
+@keyframes wave-flow {
+  to {
+    stroke-dashoffset: -360;
+  }
+}
+
+@keyframes orbit-seal-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .stage-glow {
-  background: radial-gradient(circle at 75% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 45%),
-              radial-gradient(circle at 25% 10%, rgba(56, 189, 248, 0.1) 0%, transparent 40%);
-  animation: stage-breathe 8s ease-in-out infinite alternate;
+  background:
+    radial-gradient(ellipse at 78% 16%, rgba(45, 212, 191, 0.16) 0%, transparent 46%),
+    radial-gradient(ellipse at 22% 12%, rgba(229, 184, 105, 0.1) 0%, transparent 42%),
+    radial-gradient(ellipse at 50% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+  animation: stage-breathe 7.5s ease-in-out infinite alternate;
+}
+
+.stage-wave-dash {
+  stroke-dasharray: 6 14;
+  animation: wave-flow 18s linear infinite;
+}
+
+.orbit-seal {
+  transform-origin: 50% 50%;
+  animation: orbit-seal-spin 46s linear infinite;
+}
+
+/* 2. 专属角色交互反馈器 (#signature-effect: 翡翠书签与流苏菱光卫星) */
+.signature-orbit {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  pointer-events: none;
+  z-index: 60;
+  transition:
+    transform 0.28s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.25s ease;
+  will-change: transform, opacity;
+}
+
+.signature-satellite {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 20px;
+  top: 20px;
+  transition:
+    transform 0.34s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.28s ease;
+}
+
+/* 3. 滚动分镜揭示 (Scroll-Driven Section Reveal) */
+.enter-on-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.enter-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 隐藏人物测试模式 (Hidden-Character Test) */
+body[data-hide-character="true"] .character-visual-asset {
+  opacity: 0.03 !important;
+  filter: grayscale(1) blur(10px) !important;
+}
+
+/* Reduced Motion 静态降级保护 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .enter-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* 滚动条 */
@@ -75,9 +291,9 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(229, 184, 105, 0.22);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 212, 191, 0.35);
+  background: rgba(45, 212, 191, 0.45);
 }

@@ -45,48 +45,63 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200 select-none">
-      <div className="w-full max-w-md h-full bg-[#0a0f1d] border-l border-white/[0.08] shadow-2xl flex flex-col justify-between overflow-hidden">
+    <div className="fixed inset-0 z-50 flex justify-end bg-[#070b12]/85 backdrop-blur-md animate-in fade-in duration-200 select-none">
+      <div className="w-full max-w-md h-full bg-[#090e17] border-l border-[#e5b869]/30 flex flex-col justify-between overflow-hidden">
         {/* 顶部标题 */}
-        <div className="px-6 py-4 border-b border-white/[0.08] flex items-center justify-between bg-slate-900/60">
-          <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-teal-400" />
-            <h2 className="text-sm font-bold text-slate-100">切换企划成员与阵容</h2>
+        <div className="px-6 py-4 border-b border-[#e5b869]/25 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <Users className="w-4 h-4 text-[#e5b869]" />
+            <div>
+              <span className="font-mono text-[10px] text-[#2dd4bf] uppercase tracking-[0.2em] block">
+                TROUPE ROSTER · 剧团名簿
+              </span>
+              <h2 className="serif-title text-sm font-bold text-slate-100 m-0">
+                切换企划学园与在籍成员
+              </h2>
+            </div>
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="w-7 h-7 rounded-lg hover:bg-white/[0.08] text-slate-400 hover:text-white flex items-center justify-center transition-all"
+            className="text-xs font-mono text-slate-400 hover:text-[#e5b869] flex items-center gap-1 transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
+            <span>[ESC]</span>
           </button>
         </div>
 
         {/* 内容区 */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-5">
+        <div className="flex-1 overflow-y-auto px-6 py-5 divide-y divide-[#e5b869]/20 space-y-5">
           {/* 1. 企划切换 */}
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">
-              企划系列
+          <div className="space-y-2">
+            <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#e5b869] block">
+              01 · PROJECT ARCHIVE · 企划系列
             </label>
-            <div className="grid grid-cols-2 gap-1.5">
-              {projects.map(p => {
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+              {projects.map((p, idx) => {
                 const isSelected = p.id === selectedProjectId;
                 return (
                   <button
                     key={p.id}
+                    type="button"
                     onClick={() => {
                       onSelectProject(p.id);
                       onSelectGroup(null);
                     }}
-                    className={`text-left p-2 rounded-lg text-xs transition-all border ${
+                    className={`text-left py-2 border-b text-xs transition-colors cursor-pointer ${
                       isSelected
-                        ? 'bg-teal-500/15 border-teal-400/40 text-teal-300 font-medium'
-                        : 'bg-white/[0.02] border-white/[0.06] text-slate-400 hover:text-slate-200 hover:bg-white/[0.05]'
+                        ? 'border-[#e5b869] text-[#f5f0e6] font-semibold'
+                        : 'border-white/[0.08] text-slate-400 hover:text-slate-200'
                     }`}
                   >
-                    <span className="block truncate font-semibold">{p.name_zh}</span>
+                    <span className="block truncate">
+                      <span className="font-mono text-[10px] text-[#e5b869] mr-1">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      {p.name_zh}
+                    </span>
                     <span className="block text-[10px] text-slate-500 font-mono mt-0.5">
-                      共 {p.total_count ?? 0} 位角色
+                      ROSTER {p.total_count ?? 0}
                     </span>
                   </button>
                 );
@@ -96,26 +111,30 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
 
           {/* 2. 队伍与在籍状态切换 */}
           {currentProject && (
-            <div className="space-y-2 p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div className="pt-4 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-medium text-slate-400">分队阵容</span>
-                <div className="flex items-center rounded-md bg-slate-900 border border-white/10 p-0.5 text-[10px]">
+                <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#2dd4bf]">
+                  02 · SUB-UNIT & STATUS · 分队与在籍
+                </span>
+                <div className="flex items-center gap-3 text-[11px] font-mono">
                   <button
+                    type="button"
                     onClick={() => onToggleStatusFilter('active')}
-                    className={`px-2 py-0.5 rounded ${
+                    className={`pb-0.5 border-b cursor-pointer ${
                       statusFilter === 'active'
-                        ? 'bg-teal-400 text-slate-950 font-bold'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'border-[#2dd4bf] text-[#2dd4bf] font-bold'
+                        : 'border-transparent text-slate-500 hover:text-slate-300'
                     }`}
                   >
                     现役在籍
                   </button>
                   <button
+                    type="button"
                     onClick={() => onToggleStatusFilter('all')}
-                    className={`px-2 py-0.5 rounded ${
+                    className={`pb-0.5 border-b cursor-pointer ${
                       statusFilter === 'all'
-                        ? 'bg-teal-400 text-slate-950 font-bold'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'border-[#2dd4bf] text-[#2dd4bf] font-bold'
+                        : 'border-transparent text-slate-500 hover:text-slate-300'
                     }`}
                   >
                     历代全员
@@ -123,13 +142,14 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-1 pt-1">
+              <div className="flex flex-wrap gap-x-4 gap-y-1.5 pt-1">
                 <button
+                  type="button"
                   onClick={() => onSelectGroup(null)}
-                  className={`text-[11px] px-2.5 py-1 rounded-md transition-all ${
+                  className={`text-xs pb-1 border-b transition-colors cursor-pointer ${
                     selectedGroupId === null
-                      ? 'bg-teal-500/20 text-teal-200 border border-teal-400/40 font-medium'
-                      : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-transparent'
+                      ? 'border-[#e5b869] text-[#f5f0e6] font-semibold'
+                      : 'border-transparent text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   全团
@@ -137,11 +157,12 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
                 {currentProject.groups?.map(g => (
                   <button
                     key={g.id}
+                    type="button"
                     onClick={() => onSelectGroup(g.id)}
-                    className={`text-[11px] px-2.5 py-1 rounded-md transition-all ${
+                    className={`text-xs pb-1 border-b transition-colors cursor-pointer ${
                       selectedGroupId === g.id
-                        ? 'bg-teal-500/20 text-teal-200 border border-teal-400/40 font-medium'
-                        : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-transparent'
+                        ? 'border-[#e5b869] text-[#f5f0e6] font-semibold'
+                        : 'border-transparent text-slate-400 hover:text-slate-200'
                     }`}
                   >
                     {g.name_zh || g.name_ja}
@@ -152,63 +173,60 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
           )}
 
           {/* 3. 搜索与成员列表 */}
-          <div className="space-y-2">
-            <div className="relative">
-              <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+          <div className="pt-4 space-y-3">
+            <div className="relative border-b border-[#e5b869]/30 pb-1">
+              <Search className="w-3.5 h-3.5 absolute left-0 top-1/2 -translate-y-1/2 text-[#e5b869]" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)}
-                placeholder="快速检索角色名 (中/日)..."
-                className="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-900/90 border border-white/10 rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-400"
+                placeholder="检索角色名 (中/日)..."
+                className="w-full pl-6 pr-2 py-1 text-xs bg-transparent text-slate-100 placeholder-slate-500 focus:outline-none"
               />
             </div>
 
-            <div className="space-y-1 max-h-96 overflow-y-auto pr-1">
+            <div className="divide-y divide-white/[0.06] max-h-96 overflow-y-auto pr-1">
               {filteredCharacters.map(char => {
                 const isSelected = char.id === selectedCharacterId;
                 return (
                   <button
                     key={char.id}
+                    type="button"
                     onClick={() => {
                       onSelectCharacter(char.id);
                       onClose();
                     }}
-                    className={`w-full text-left p-2.5 rounded-xl text-xs transition-all flex items-center justify-between border ${
+                    className={`w-full text-left py-2.5 text-xs transition-colors flex items-center justify-between cursor-pointer ${
                       isSelected
-                        ? 'bg-teal-500/15 text-teal-200 border-teal-400/40 font-medium'
-                        : 'text-slate-300 hover:bg-white/[0.04] border-transparent'
+                        ? 'text-[#f5f0e6] font-semibold'
+                        : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 truncate">
                       <span
-                        className="w-2.5 h-2.5 rounded-full flex-none"
+                        className="w-2 h-2 rotate-45 flex-none"
                         style={{ backgroundColor: char.color_hex || '#2dd4bf' }}
                       />
                       <div className="truncate">
-                        <span className="font-semibold block truncate leading-tight">
+                        <span className="serif-title font-bold block truncate leading-tight">
                           {char.name_zh}
                         </span>
-                        <span className="text-[10px] text-slate-500 block truncate leading-tight">
+                        <span className="text-[10px] text-slate-500 font-mono block truncate leading-tight">
                           {char.name_ja}
                         </span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 flex-none pl-2">
+                    <div className="flex items-center gap-2 flex-none pl-2 font-mono text-[10px]">
                       {char.enrollment_term && (
-                        <span className="text-[10px] text-slate-500 font-mono">
-                          {char.enrollment_term}
-                        </span>
+                        <span className="text-slate-500">{char.enrollment_term}</span>
                       )}
                       <span
-                        className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                          (char.costume_count ?? 0) > 0
-                            ? 'bg-teal-500/20 text-teal-300'
-                            : 'bg-white/[0.05] text-slate-500'
-                        }`}
+                        className={
+                          (char.costume_count ?? 0) > 0 ? 'text-[#2dd4bf]' : 'text-slate-600'
+                        }
                       >
-                        {char.costume_count ?? 0}套
+                        {String(char.costume_count ?? 0).padStart(2, '0')} 卷
                       </span>
                     </div>
                   </button>
@@ -219,12 +237,13 @@ export const MemberDrawer: React.FC<MemberDrawerProps> = ({
         </div>
 
         {/* 底部关闭按钮 */}
-        <div className="p-4 border-t border-white/[0.08] bg-slate-900/90 text-center">
+        <div className="px-6 py-4 border-t border-[#e5b869]/25 text-center">
           <button
+            type="button"
             onClick={onClose}
-            className="w-full py-2 text-xs font-semibold text-slate-400 hover:text-white"
+            className="w-full py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-slate-400 hover:text-[#e5b869] cursor-pointer"
           >
-            完成选择
+            CLOSE ROSTER · 收起名簿
           </button>
         </div>
       </div>

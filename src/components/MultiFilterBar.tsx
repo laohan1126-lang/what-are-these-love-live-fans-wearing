@@ -26,6 +26,7 @@ export const MultiFilterBar: React.FC<MultiFilterBarProps> = ({
     { id: 'all', label: '全部来源' },
     { id: 'game_card', label: '手游卡面' },
     { id: 'seiyuu_live', label: '声优 Live 演出服' },
+    { id: 'cosplay_photo', label: 'Cosplay 实拍' },
     { id: 'anime', label: '动画' },
     { id: 'cd_jacket', label: 'CD 封面' },
     { id: 'magazine', label: '杂志' },

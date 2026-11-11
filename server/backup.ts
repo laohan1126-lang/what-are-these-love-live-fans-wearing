@@ -27,9 +27,20 @@ export function createBackupZip(outputPath: string): Promise<void> {
         zip.addLocalFile(walFile);
       }
 
-      // 2. 添加 uploads 目录内容
+      // 2. 添加 uploads 目录内容（忽略瞬态 tmp-* 临时文件或并发消失的文件）
       if (fs.existsSync(UPLOADS_DIR)) {
-        zip.addLocalFolder(UPLOADS_DIR, 'uploads');
+        const files = fs.readdirSync(UPLOADS_DIR);
+        for (const name of files) {
+          if (name.startsWith('tmp-')) continue;
+          const filePath = path.resolve(UPLOADS_DIR, name);
+          try {
+            if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+              zip.addLocalFile(filePath, 'uploads');
+            }
+          } catch {
+            // 忽略并发清理中的瞬态文件
+          }
+        }
       }
 
       // 3. 添加 manifest.json

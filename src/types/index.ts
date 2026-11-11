@@ -59,7 +59,7 @@ export interface CostumeImage {
   sort_order: number;
 }
 
-export type SourceType = 'anime' | 'game_card' | 'seiyuu_live' | 'cd_jacket' | 'magazine' | 'official_art' | 'other';
+export type SourceType = 'anime' | 'game_card' | 'seiyuu_live' | 'live_stage' | 'cosplay_photo' | 'cd_jacket' | 'magazine' | 'official_art' | 'other';
 export type EvolutionStage = 'none' | 'unawakened' | 'awakened';
 
 export interface CostumeSource {
